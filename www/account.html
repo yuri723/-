@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html lang=ja>
+    <head>
+
+        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/materialize.css">
+
+        <title>子育てコンシェル</title>
+
+        <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/account.js"></script>
+        <script src="js/jQuery-Validation-Engine-master/js/jquery.validationEngine.js"></script>
+        <script src="js/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-ja.js"></script>
+        <link href="js/jQuery-Validation-Engine-master/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+
+        <script>
+         $(function(){
+         jQuery("#id_form").validationEngine();
+         });
+        </script>
+
+       <style>
+        h5{
+        background-color: #179A46;
+        color: #fff;
+        padding: 8px}
+
+        hr{color:#179A46}
+
+        h6{font-weight: bold;}
+
+        dt{font-weight: bold;}
+
+        div{text-align:center;
+        font-size: 1.4em;
+        border-style: none;
+
+
+        }
+        input[type=button]{
+        border-radius:10px;
+        width:200px;
+        height:30px;
+        color:#fff;
+        font-weight:bold;
+        background:gray;
+        box-shadow:black 2px 2px;
+}
+
+        label{font-weight: bold;
+        }
+
+
+    </style>
+    <script>
+
+$('#hide').css('display', 'block !important');
+    </script>
+</head>
+<body style="margin-right:15px;margin-left:15px;">
+	<h5 align="center">
+    	アカウント登録
+	</h5>
+
+
+    <p>
+    <h6>アカウント登録に必要な情報を入力してください。</h6>
+     <hr>
+    </p>
+
+    <form id="id_form" name="form">
+
+    <p>
+    <dl>
+    <dt class="fm_th">アカウント名</dt>
+    <dd class="account_check" id="id_account_check">
+        アプリ内で表示する名前を入力してください。
+     </dd>
+     <dd>
+     <input type="text" id="account" placeholder="アカウント名" style="border:solid 2px gray" class="def fm validate[required]">
+     </dd>
+    </dl>
+    </p>
+
+    <p>
+    <dl>
+    <dt class="fm_th">メールアドレス</dt>
+    <dd class="email_check" id="id_email_check">
+      メールアドレスを入力してください。
+    </dd>
+    <dd>
+    <input type="email" id="email" placeholder="メールアドレス" style="border:solid 2px gray" class="def fm validate[required,custom[email]]" />
+    </dd>
+    </dl>
+    </p>
+
+    <p>
+    <dl>
+    <dt class="fm_th">パスワード</dt>
+    <dd class="password_check " id="id_password_check">
+      8文字以上の英数字で入力してください。
+    </dd>
+    <dd>
+    <input type="password" id="password" placeholder="パスワード" style="border:solid 2px gray" class="def fm validate[required,custon[onlyLetterNumber],minSize[8]" />
+    </dd>
+    </dl>
+    </p>
+
+    <p>
+    <dl>
+    <dt class="fm_th def">パスワード（確認用）</dt>
+    <dd class="password2_check def" id="id_password2_check">
+      確認のためにパスワードを再度入力してください。
+    </dd>
+    <dd>
+    <input type="password" id="password2" placeholder="パスワード確認用" style="border:solid 2px gray" class="def fm validate[required,equals[password]" />
+    </dd>
+    </dl>
+    </p>
+
+    <p>
+    <dl>
+    <dt class="fm_th">生年月日</dt>
+    <dd class="date_check" id="id_date_check">
+      生年月日を入力してください。
+    </dd>
+    <dd>
+    <input type="date" id="date" placeholder="生年月日" style="border:solid 2px gray"　value='1988-01-01' class="def fm validate[required,custom[date]]"/>
+    </dd>
+    </dl>
+    </p>
+
+    <p>
+    <dl>
+    <dt class="fm_th">性別</dt>
+    <dd class="seibetu_check" id="id_seibetu_check">
+      性別を選択してください。
+    </dd>
+    <dd>
+      <input type="radio" name="seibetu" type="radio" id="man" checked class="def fm"/>
+      <label for="man" class="def">男性</label>
+    　　<!-- 全角スペース -->
+      <input type="radio" name="seibetu" type="radio" id="woman" class="def fm"  />
+      <label for="woman" class="def">女性</label>
+    </dd>
+    </dl>
+    </p>
+
+　　
+
+　  <div class="fm_button">
+    <input type="button" value="送信内容の確認"  id="check" class="def" />
+    <input type="button" id="back" value="&lt;&lt; 訂正" class="hid">
+    <input type="button" id="send" value="送信 &gt;&gt;" class="hid" >
+
+    </div>
+    </form>
+    <br>
+
+
+
+</body>
+</html>

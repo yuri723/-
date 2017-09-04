@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang=ja>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self''unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/materialize.css">
+        <title>子育てコンシェル</title>
+        <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/partner.js"></script>
+        <script src="js/jQuery-Validation-Engine-master/js/jquery.validationEngine.js"></script>
+        <script src="js/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-ja.js"></script>
+        <link href="js/jQuery-Validation-Engine-master/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+
+        <script>
+          $(function(){
+          jQuery("#partner_id_form").validationEngine();
+          });
+        </script>
+
+        <style>
+            h5{
+            background-color: #179A46;
+            color: #fff;
+            padding: 8px}
+
+            hr{color:#179A46}
+
+            h6{font-weight: bold;}
+
+            dt{font-weight: bold;}
+
+            div{text-align:center;
+            font-size: 1.4em;
+            border-style: none;
+
+
+            }
+            input[type=button]{
+            border-radius:10px;
+            width:200px;
+            height:30px;
+            color:#fff;
+            font-weight:bold;
+            background:gray;
+            box-shadow:black 2px 2px;
+    }
+
+            label{font-weight: bold;
+            }
+
+        </style>
+
+    </head>
+    <body style="margin-right:8px;margin-left:8px;">
+        <h5 align="center">
+            夫婦のパートナー設定
+    	  </h5>
+
+        <form id="partner_id_form">
+        <p style="font-weight: bold">
+        夫婦間のアカウントを連携させます。
+        <br>
+        必要な情報を入力してください。
+         <hr>
+        </p>
+
+        <p>
+        <dl>
+          <dt>相手のアカウント名</dt>
+          <dd>
+          <input type="text" id="pare-account" placeholder="相手のアカウント名" style="border:solid 2px gray" class="validate[required"/>
+          </dd>
+        </dl>
+        </p>
+
+        <p>
+        <dl>
+          <dt>相手のメールアドレス</dt>
+          <dd>
+          <input type="email" id="pare-email" placeholder="相手のメールアドレス" style="border:solid 2px gray" class="validate[required,custom[email]]"/>
+          </dd>
+        </dl>
+        </p>
+
+        <p>
+        <dl>
+          <dt>相手の性別</dt>
+          <dd>
+          <input class="with-gap" name="seibetu" type="radio" id="man2"  checked/>
+          <label for="man2">男性</label>
+        　　<!-- 全角スペース -->
+          <input class="with-gap" name="seibetu" type="radio" id="woman2"  />
+          <label for="woman2">女性</label>
+          </dd>
+        </dl>
+        </p>
+
+
+        <div>
+        <input type="button" value="確認する" id="partner_button" onclick="location.href='login.html'"/>
+        </div>
+
+      </form>
+    </body>
+    </html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html lang=ja>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/materialize.css">
+        <title>子育てコンシェル</title>
+        <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/onsenui/js/onsenui.min.js"></script>
+        <script>
+        ons.bootstrap();
+        ons.ready(function() {
+          console.log("Onsen UI is ready!");
+        });
+
+        window.fn = {};
+        window.fn.open = function() {
+          var menu = document.getElementById('menu');
+          menu.open();
+        };
+        window.fn.load = function(page) {
+          var content = document.getElementById('content');
+          var menu = document.getElementById('menu');
+          content
+            .load(page)
+            .then(menu.close.bind(menu));
+        };
+
+      </script>
+
+
+    </head>
+    <body>
+      <ons-splitter>
+        <ons-splitter-side id="menu" side="left" width="220px" collapse swipeable >
+          <ons-page>
+            <ons-list>
+              <ons-list-item onclick="fn.load('talk.html')" tappable >
+                トークルーム
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('todo.html')" tappable >
+                TO DOリスト
+              </ons-list-item>
+              <ons-list-item onclick="fn.load('settings.html')" tappable >
+                設定
+              </ons-list-item>
+            </ons-list>
+          </ons-page>
+        </ons-splitter-side>
+        <ons-splitter-content id="content" page="talk.html"></ons-splitter-content>
+      </ons-splitter>
+
+      <ons-template id="talk.html">
+        <ons-page >
+          <ons-toolbar style="background-color: #179A46">
+            <div class="left" >
+              <ons-toolbar-button onclick="fn.open()" >
+                <ons-icon icon="ion-navicon, material:md-menu" style="color:#fff"></ons-icon>
+              </ons-toolbar-button>
+            </div>
+            <div class="center" style="color: #fff;padding: 2px">
+              トークルーム
+            </div>
+          </ons-toolbar>
+          <p style="text-align: center; opacity: 0.6; padding-top: 20px;">
+
+          </p>
+        </ons-page >
+      </ons-template>
+
+      <ons-template id="todo.html">
+      <ons-page>
+        <ons-toolbar style="background-color: #179A46">
+          <div class="left">
+            <ons-toolbar-button onclick="fn.open()">
+              <ons-icon icon="ion-navicon, material:md-menu" style="color:#fff"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center" style="color: #fff;padding: 2px">
+            TO DOリスト
+          </div>
+        </ons-toolbar>
+            <ons-tabbar position="top">
+              <ons-tab page="page1.html" label="やりたいこと"  ></ons-tab>
+              <ons-tab page="page2.html" label="やるべきこと" ></ons-tab>
+            </ons-tabbar>
+      </ons-page>
+      </ons-template>
+
+      <ons-template id="settings.html">
+      <ons-page>
+        <ons-toolbar style="background-color: #179A46">
+          <div class="left">
+            <ons-toolbar-button onclick="fn.open()">
+              <ons-icon icon="ion-navicon, material:md-menu" style="color:#fff"></ons-icon>
+            </ons-toolbar-button>
+          </div>
+          <div class="center" style="color: #fff;padding: 2px">
+            設定
+          </div>
+        </ons-toolbar>
+      </ons-page>
+      </ons-template>
+
+    </body>
+    </html>

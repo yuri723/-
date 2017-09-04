@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html lang=ja>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/materialize.css">
+        <title>子育てコンシェル</title>
+        <script src="js/jquery/dist/jquery.min.js"></script>
+        <script>
+        </script>
+        <style>
+            h5{
+            background-color: #179A46;
+            color: #fff;
+            padding: 8px}
+
+            hr{color:#179A46}
+
+            h6{font-weight: bold;}
+
+            div{text-align:center;
+            font-size: 1.4em;
+            border-style: none;
+
+
+            }
+            input[type=submit]{
+            border-radius:10px;
+            width:200px;
+            height:30px;
+            color:#fff;
+            font-weight:bold;
+            background:gray;
+            box-shadow:black 2px 2px;
+    }
+
+            label{font-weight: bold;
+            }
+
+
+        </style>
+    </head>
+    <body style="margin-right:8px;margin-left:8px;">
+        <h5 align="center">
+            子育て像の質問(4/4)
+        </h5>
+
+        <p style="font-weight: bold">
+        あなた自身はどのように子育てをしたいと思っていますか？
+        <br>
+        当てはまるものにチェックを入れてください。
+         <hr>
+        </p>
+
+        <p>
+        <h6>質問4</h6>
+        <br>
+        <img src="img/policy4.png" style="width:100%;height:auto;max-width:320px;" alt="怪我や病気など大変なとき">
+        <br>
+        <h6>自分が大変なときは子供を人に預ける？預けない？</h6>
+        </p>
+
+        <p>
+         <h6>答え</h6>
+         <input class="with-gap" name="answer4" type="radio" id="answer1"  />
+         <label for="answer1">預ける</label>
+         <br>
+         <input class="with-gap" name="answer4" type="radio" id="answer2"  />
+         <label for="answer2">どちらかといえば預ける</label>
+         <br>
+         <input class="with-gap" name="answer4" type="radio" id="answer3"  />
+         <label for="answer3">どちらかといえば預けたくない</label>
+         <br>
+         <input class="with-gap" name="answer4" type="radio" id="answer4"  />
+         <label for="answer4">預けたくない</label>
+        </p>
+        <br>
+        <div>
+        <input type="submit"  value="子育て像を共有する" onclick="location.href='sharing.html'"/>
+        </div>
+        <br>
+        <div>
+        <input type="submit"  value="戻る" onclick="location.href='policy3.html'"/>
+        </div>
+        <br>
+    </body>
+    </html>
