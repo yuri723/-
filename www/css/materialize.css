@@ -4520,9 +4520,9 @@ h4 {
 }
 
 h5 {
-  font-size: 1.64rem;
-  line-height: 110%;
-  margin: 0.82rem 0 0.656rem 0;
+    font-size: 1.64rem;
+    line-height: 150%;
+    margin: 0.42rem 0 0.2rem 0;
 }
 
 h6 {

@@ -11,14 +11,23 @@ $(function(){
      $.ajax('https://support-spouses-communication.herokuapp.com/v1/login',
      {
      type: 'POST',
-     data: {"hasband": {"email": "uaaarrrr80@emple.com", "password": "mypasssss80"}},
+     data: {"hasband": {"email": "uaaarrrr81@emple.com", "password": "mypasssss81"}},
      dataType: 'json',
      timeout:10000
      }
      )
-     .done(function(data){
+     .done(function(data,status, jqxhr){
+       if (jqxhr.status === 200) {
+            // ステータスコードが 200 の場合
+            console.log('200だよ' );//確認用
+        } else {
+            // ステータスコードが 200 以外の場合
+            console.log('200以外だよ' );//確認用
+        }
      console.log('seikou' );//確認用
      console.log(data);//確認用
+
+     window.location.href = 'home.html'; //画面遷移
      });
 
      /*

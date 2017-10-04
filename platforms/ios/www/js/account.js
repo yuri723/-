@@ -151,7 +151,7 @@ $(document).ready(function(){
         $.ajax('https://support-spouses-communication.herokuapp.com/v1/hasbands',
           {
           type: 'POST',
-          data: {"hasband": {"email": "uaaarrrr80@emple.com", "password": "mypasssss80"}},
+          data: {"hasband": {"email": "uaaarrrr81@emple.com", "password": "mypasssss81"}},
           dataType: 'json',
           async: false,
           timeout:10000
