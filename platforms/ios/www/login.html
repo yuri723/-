@@ -12,6 +12,7 @@
         <script src="js/jQuery-Validation-Engine-master/js/jquery.validationEngine.js"></script>
         <script src="js/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-ja.js"></script>
         <link href="js/jQuery-Validation-Engine-master/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script>
           $(function(){
           jQuery("#login_id_form").validationEngine();
@@ -21,6 +22,7 @@
             $('#login_button').click(function(){
               var email = $("#email").val();
               var pass = $("#password").val();
+              var sex   = $('input[name=sex]:checked').val();
               console.log(email);
               console.log(pass);
               $.ajax({
@@ -30,12 +32,36 @@
                 data: {
                   'email': email,
                   'password': pass,
-                  'type': 'hasband'
+                  'type': sex
                 },
               }).done(function(response, textStatus, jqXHR) {
+                if(response["access_token"] == null){
+                  alert("認証エラー");
+                  return;
+                }
                 console.log(response["email"]);
                 console.log(response["id"]);
                 console.log(response["access_token"]);
+                window.localStorage.setItem("access_token_local",response["access_token"]);
+                window.localStorage.setItem("id_local",response["id"]);
+                window.localStorage.setItem("email_local",response["mail"]);
+                window.localStorage.setItem("seibetu_local",sex);
+
+                    $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{
+                        type: 'GET',
+                        headers: {
+                          'Authorization': window.localStorage.getItem("access_token_local"),
+                          'UserType': window.localStorage.getItem("seibetu_local"),
+                        },
+                        async: false,
+                        timeout: 10000,
+                    }).done(function(data) {
+                      window.localStorage.setItem("family_id",data.id);
+                    }).fail(function(jqXHR, statusText, errorThrown) {
+                      alert("ログインエラー");
+                      return;
+                    });
+                window.location.href = 'home.html'; //画面遷移
               }).fail(function(jqXHR, textStatus, errorThrown ) {
                 console.log("error");
               });
@@ -108,6 +134,11 @@
          </dd>
         </dl>
         </p>
+
+        <input name="sex" type="radio" id="man" value="hasband"/>
+        <label for="man">男</label>
+        <input name="sex" type="radio" id="woman" value="wife"/>
+        <label for="woman">女</label>
 
         <div>
         <input type="button" value="ログイン"  id="login_button"/>

@@ -26,8 +26,12 @@ function add_statement(statement, user_type){
   }
 }());
 
+// 全件取得
 $(document).ready(function(){
-  $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/talks ",{
+  console.log("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/talks");
+  console.log(window.localStorage.getItem("access_token_local"));
+  console.log(window.localStorage.getItem("seibetu_local"));
+  $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
       type: 'GET',
       headers: {
         'Authorization': window.localStorage.getItem("access_token_local"),
