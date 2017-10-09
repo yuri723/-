@@ -1,6 +1,4 @@
 $(function(){
-  // TODO すでに相手に登録されていた時に飛ばす
-
   access_token=window.localStorage.getItem("access_token_local");
   $(document).on('click','#partner_button',function(){
     var email = $("#pare-email").val();
@@ -45,3 +43,27 @@ $(function(){
 
    });
  });
+
+$(document).ready(function(){
+  var checkPartner = function(){
+    console.log(window.localStorage.getItem("access_token_local"));
+    console.log(window.localStorage.getItem("seibetu_local"));
+    $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{
+        type: 'GET',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        timeout: 10000,
+    }).done(function(data) {
+      if(data != null){
+        alert("相手によって登録されています。ホーム画面に移動します。");
+        window.localStorage.setItem("family_id",data.id);
+        window.location.href = 'home.html';
+      }
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      return;
+    });
+  }
+  setInterval(checkPartner, 3000);
+});
