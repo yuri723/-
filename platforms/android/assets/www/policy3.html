@@ -3,13 +3,13 @@
 <html lang=ja>
     <head>
 
-        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/policy3.js"></script>
         <script>
     </script>
     <style>
@@ -66,25 +66,25 @@
 
     <p>
      <h6>答え</h6>
-     <input class="with-gap" name="answer3" type="radio" id="answer1"  />
+     <input class="with-gap" name="answer" type="radio" id="answer1" value="1" />
      <label for="answer1">自分で立ち上がるのを待つ</label>
      <br>
-     <input class="with-gap" name="answer3" type="radio" id="answer2"  />
+     <input class="with-gap" name="answer" type="radio" id="answer2" value="2" />
      <label for="answer2">どちらかといえば自分で立ち上がるのを待つ</label>
      <br>
-     <input class="with-gap" name="answer3" type="radio" id="answer3"  />
+     <input class="with-gap" name="answer" type="radio" id="answer3" value="3" />
      <label for="answer3">どちらかといえば手をかす</label>
      <br>
-     <input class="with-gap" name="answer3" type="radio" id="answer4"  />
+     <input class="with-gap" name="answer" type="radio" id="answer4" value="4" />
      <label for="answer4">手をかす</label>
     </p>
 
     <div>
-    <input type="submit"  value="次の質問へ" onclick="location.href='policy4.html'"/>
+    <input type="submit" id="send" value="次の質問へ"/>
     </div>
     <br>
     <div>
-    <input type="submit"  value="戻る" onclick="location.href='policy2.html'"/>
+    <input type="submit"  value="戻る"/>
     </div>
     <br>
 </body>

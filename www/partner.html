@@ -2,7 +2,6 @@
 
 <html lang=ja>
     <head>
-        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self''unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -69,15 +68,6 @@
 
         <p>
         <dl>
-          <dt>相手のアカウント名</dt>
-          <dd>
-          <input type="text" id="pare-account" placeholder="相手のアカウント名" style="border:solid 2px gray" class="validate[required"/>
-          </dd>
-        </dl>
-        </p>
-
-        <p>
-        <dl>
           <dt>相手のメールアドレス</dt>
           <dd>
           <input type="email" id="pare-email" placeholder="相手のメールアドレス" style="border:solid 2px gray" class="validate[required,custom[email]]"/>
@@ -85,22 +75,9 @@
         </dl>
         </p>
 
-        <p>
-        <dl>
-          <dt>相手の性別</dt>
-          <dd>
-          <input class="with-gap" name="seibetu" type="radio" id="man2"  checked/>
-          <label for="man2">男性</label>
-        　　<!-- 全角スペース -->
-          <input class="with-gap" name="seibetu" type="radio" id="woman2"  />
-          <label for="woman2">女性</label>
-          </dd>
-        </dl>
-        </p>
-
 
         <div>
-        <input type="button" value="確認する" id="partner_button" onclick="location.href='login.html'"/>
+        <input type="button" value="確認する" id="partner_button"/>
         </div>
 
       </form>
