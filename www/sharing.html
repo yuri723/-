@@ -3,12 +3,12 @@
 <html lang=ja>
     <head>
 
-        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/sharing.js"></script>
         <script>
     </script>
     <style>
@@ -56,8 +56,8 @@
     <p>
      <img src="img/sharing.png" style="width:100%;height:auto;max-width:200px;">
      <br>
-     <h6>あなたとパートナーの答えの一致率は</h6>
-     <h6>50パーセントです。</h6>
+     <h6 id="share">相手の回答がまだ登録されていません</h6>
+
     </p>
 
 
@@ -67,7 +67,7 @@
     </div>
     <br>
     <div>
-    <input type="submit"  value="共有終了" onclick="location.href='login.html'"/>
+    <input type="submit"  value="共有終了" onclick="location.href='home.html'"/>
     </div>
     <br>
 </body>

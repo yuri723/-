@@ -3,13 +3,13 @@
 <html lang=ja>
     <head>
 
-        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/sharing2.js"></script>
         <script>
     </script>
     <style>
@@ -57,22 +57,26 @@
 
     <p style="color:#179A46">
      <h6 style="font-weight: bold">質問1</h6>
-     スポーツ
+     <div id="q1">
+    </div>
     </p>
 
     <p style="color:#179A46">
      <h6 style="font-weight: bold">質問2</h6>
-     どちらかといえば食べさせてあげる
+     <div id="q2">
+    </div>
     </p>
 
     <p style="color:#179A46">
      <h6 style="font-weight: bold">質問3</h6>
-     手をかす
+     <div id="q3">
+    </div>
     </p>
 
     <p style="color:#179A46">
      <h6 style="font-weight: bold">質問4</h6>
-     預ける
+     <div id="q4">
+    </div>
     </p>
 
 
@@ -82,7 +86,7 @@
     </div>
     <br>
     <div>
-    <input type="submit"  value="共有終了" onclick="location.href='login.html'"/>
+    <input type="submit"  value="共有終了" onclick="location.href='home.html'"/>
     </div>
     <br>
 </body>

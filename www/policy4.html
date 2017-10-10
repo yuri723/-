@@ -3,12 +3,12 @@
 <html lang=ja>
     <head>
 
-        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/policy4.js"></script>
         <script>
         </script>
         <style>
@@ -65,25 +65,25 @@
 
         <p>
          <h6>答え</h6>
-         <input class="with-gap" name="answer4" type="radio" id="answer1"  />
+         <input class="with-gap" name="answer" type="radio" id="answer1"  value="預ける"/>
          <label for="answer1">預ける</label>
          <br>
-         <input class="with-gap" name="answer4" type="radio" id="answer2"  />
+         <input class="with-gap" name="answer" type="radio" id="answer2"  value="どちらかといえば預ける"/>
          <label for="answer2">どちらかといえば預ける</label>
          <br>
-         <input class="with-gap" name="answer4" type="radio" id="answer3"  />
+         <input class="with-gap" name="answer" type="radio" id="answer3" value="どちらかといえば預けたくない" />
          <label for="answer3">どちらかといえば預けたくない</label>
          <br>
-         <input class="with-gap" name="answer4" type="radio" id="answer4"  />
+         <input class="with-gap" name="answer" type="radio" id="answer4" value="預けたくない" />
          <label for="answer4">預けたくない</label>
         </p>
         <br>
         <div>
-        <input type="submit"  value="子育て像を共有する" onclick="location.href='sharing.html'"/>
+        <input type="submit" id="send" value="子育て像を共有する"/>
         </div>
         <br>
         <div>
-        <input type="submit"  value="戻る" onclick="location.href='policy3.html'"/>
+        <input type="submit"  value="戻る"/>
         </div>
         <br>
     </body>

@@ -3,7 +3,6 @@
 <html lang=ja>
     <head>
 
-        <meta http-equiv="Content-Security-Policy" content="script-src'self' https://localhost:8000; object-src 'self'; style-src'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -14,9 +13,25 @@
         <script src="js/jquery/dist/jquery.min.js"></script>
 
         <script>
-        　//ログイン記録の有無で処理を行う
           if(window.localStorage.getItem("access_token_local")!=null){
-            window.location.href = 'login.html'; //ログイン記録あり→ログイン画面に画面遷移
+            /* TODO ログイン後に家族登録しなかった場合
+            $.ajax('https://support-spouses-communication.herokuapp.com/v1/families/search',{
+                type: 'GET',
+                headers: {
+                  'Authorization': "87:twQij-ZFR1r84T-yU5ts",
+                  'UserType': "hasband"
+                },
+                dataType: 'json',
+                timeout: 10000,
+            }).done(function(data) {
+              console.log(data);
+            }).fail(function(jqXHR, statusText, errorThrown) {
+              console.log(jqXHR);
+              console.log(statusText);
+              console.log(errorThrown);
+            });
+            */
+            window.location.href = 'home.html'; //ログイン記録あり→ログイン画面に画面遷移
           }else {
             window.location.href = 'account.html'; //ログイン記録なし→アカウント登録画面に画面遷移
           }
