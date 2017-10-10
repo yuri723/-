@@ -57,9 +57,9 @@ $(document).ready(function(){
         timeout: 10000,
     }).done(function(data) {
       if(data != null){
-        alert("相手によって登録されています。ホーム画面に移動します。");
+        alert("相手によって登録されています。次の画面へ移動します。");
         window.localStorage.setItem("family_id",data.id);
-        window.location.href = 'home.html';
+        window.location.href = 'policy.html';
       }
     }).fail(function(jqXHR, statusText, errorThrown) {
       return;
