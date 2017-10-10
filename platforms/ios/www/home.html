@@ -11,14 +11,47 @@
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/css/drawer.min.css">
+        <link rel="stylesheet" href="css/drawer.min.css">
+        <link rel="stylesheet" type="text/css" href="css/slick.css">
+        <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
         <script src="js/jquery/dist/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/js/drawer.min.js"></script>
+        <script type="text/javascript" src="js/slick.min.js"></script>
         <script>
           $(document).ready(function() {
 	          $('.drawer').drawer();
+            $('.single-item').slick({
+             slidesToShow: 10, //表示するスライド数
+             slidesToScroll: 1, //スクロールするスライド数
+             infinite: false, //無限ループを無効にする
+             vertical: true,  //カルーセルを垂直方向にする
+             verticalSwiping: true
+
+            });
+
           });
+
+
+  var talk = [];
+talk.push({account:'bot', talk:'ありがとうをいいましたか'});
+talk.push({account:'hasband', talk:'ありがとう'});
+talk.push({account:'wife', talk:'こちらこそ'});
+localStorage.setItem('json', JSON.stringify(talk));
+
+var talk = localStorage.getItem('json');
+talk = JSON.parse(talk);
+for (var i = 0; i < talk.length; i++) {
+for (var key in talk[i]) {
+console.log(talk[i][key]);
+var listStr = "<div>" + talk[i][key] + "</div>";
+console.log(listStr);
+$("#talkroom").html(listStr);
+}
+}
+
+
+
        </script>
 
        <style>
@@ -27,6 +60,12 @@
          background-color: #179A46;
          color: #fff;
          padding: 8px}
+
+         .main{
+         width:80%;
+         margin-left:50px;
+         font-size: 18px;
+        }
        </style>
 
     </head>
@@ -50,7 +89,27 @@
         <h5 align="center">
         	トークルーム
     	  </h5>
-		  <!-- コンテンツ -->
+
+        <!-- トークルーム　コンテンツ -->
+        <div class="main">
+         <div class="single-item" id="talkroom">
+         <div>トーク1</div>
+         <div>トーク2</div>
+         <div>トーク3</div>
+         <div>トーク4</div>
+         <div>トーク5</div>
+         <div>トーク6</div>
+         <div>トーク7</div>
+         <div>トーク8</div>
+         <div>トーク9</div>
+         <div>トーク10</div>
+         <div>トーク11</div>
+         <div>トーク12</div>
+         </div>
+        </div>
+
+
 	</main>
+
 </body>
 </html>
