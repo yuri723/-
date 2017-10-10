@@ -4,7 +4,7 @@ $(function(){
     var email = $("#pare-email").val();
 
     if (window.localStorage.getItem("seibetu_local") == "hasband"){
-      search_url = "https://support-spouses-communication.herokuapp.com/v1/wives/search_partner?partner_email=";
+      search_url = "https://support-spouses-communication.herokuapp.com/v1/hasbands/search_partner?partner_email=";
       type = "hasband";
     }else{
       search_url = "https://support-spouses-communication.herokuapp.com/v1/wives/search_partner?partner_email=";
