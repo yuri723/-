@@ -11,6 +11,7 @@ $(function(){
       type = "wife";
     }
 
+    // ユーザ検索
     $.ajax(search_url+email,{
         type: 'GET',
         headers: {
@@ -21,6 +22,7 @@ $(function(){
         timeout: 10000,
     }).done(function(data) {
       if(data.length == 1){
+        // ユーザ登録
         $.ajax("https://support-spouses-communication.herokuapp.com/v1/families",{
             type: 'POST',
             headers: {
@@ -31,8 +33,20 @@ $(function(){
             dataType: 'json',
             timeout: 10000,
         }).done(function(data) {
-          console.log(data);
-          window.location.href = 'policy.html'; //画面遷移
+          // 家族情報取得
+          $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{
+              type: 'GET',
+              headers: {
+                'Authorization': window.localStorage.getItem("access_token_local"),
+                'UserType': window.localStorage.getItem("seibetu_local"),
+              },
+              timeout: 10000,
+          }).done(function(data) {
+              window.localStorage.setItem("family_id",data.id);
+              window.location.href = 'policy.html';
+          }).fail(function(jqXHR, statusText, errorThrown) {
+            alert("家族登録に失敗しました。");
+          });
         }).fail(function(jqXHR, statusText, errorThrown) {
         });
       }else{
@@ -44,6 +58,7 @@ $(function(){
    });
  });
 
+// 相手によって登録されないか定期的にチェック
 $(document).ready(function(){
   var checkPartner = function(){
     $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{

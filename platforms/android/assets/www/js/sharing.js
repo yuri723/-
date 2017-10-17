@@ -14,6 +14,7 @@ $(document).ready(function(){
         },
         timeout: 10000,
     }).done(function(data) {
+      console.log(data);
       data.forEach(function(val,index,ar){
         partner_answer.push(val.answer);
       });
