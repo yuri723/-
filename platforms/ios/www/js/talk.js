@@ -6,7 +6,7 @@ function add_statement(statement, user_type){
   }
 }
 
-
+// family_idが無いならエラー
 (function () {
   if(window.localStorage.getItem("family_id") == null){
     $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{

@@ -42,7 +42,6 @@ $(function(){
               },
               timeout: 10000,
           }).done(function(data) {
-              alert("相手によって登録されています。次の画面へ移動します。");
               window.localStorage.setItem("family_id",data.id);
               window.location.href = 'policy.html';
           }).fail(function(jqXHR, statusText, errorThrown) {
@@ -59,6 +58,7 @@ $(function(){
    });
  });
 
+// 相手によって登録されないか定期的にチェック
 $(document).ready(function(){
   var checkPartner = function(){
     $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{

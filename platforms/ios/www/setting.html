@@ -59,12 +59,16 @@
 
       <div>
       <dl>
-      <dt >アカウント名</dt><dd id="dd_account">dd_account</dd>
+      <dt >アカウント名</dt><dd id="dd_account"><input type="text" value="hoge" name="account-name"></dd>
       <dt >性別</dt><dd id="dd_seibetu">dd_seibetu</dd>
-      <dt >生年月日</dt><dd id="dd_date">dd_date</dd>
-      <dt >メールアドレス</dt><dd id="dd_email">dd_email</dd>
+      <dt >生年月日</dt><dd id="dd_date"><input type="date" value="hoge" name="birthday"></dd>
+      <dt >メールアドレス</dt><dd id="dd_email"><input type="email" value="hoge" name="email"></dd>
       <dt >パスワード</dt><dd id="dd_password">dd_password</dd>
       </dl>
+    </div>
+
+    <div>
+      <button name="update" onClick="update()">更新</button>
     </div>
 
   </main>

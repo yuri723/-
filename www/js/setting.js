@@ -4,24 +4,69 @@ $(document).ready(function(){
   /*
    * アカウント情報を変数に入れる
    */
-   var dd_account = window.localStorage.getItem("name_local"); //アカウント名
-   var dd_email = window.localStorage.getItem("email_local");//Eメール
-   var dd_password = window.localStorage.getItem("password_local"); //パスワード
-   var dd_date = window.localStorage.getItem("date_local");//生年月日
+   var dd_account;
+   var dd_email;
+   var dd_date;
+   var dd_seibetu;
 
-   var dd_seibetu = window.localStorage.getItem("seibetu_local");//性別
-   if(dd_seibetu == "hasband"){
+   if(window.localStorage.getItem("seibetu_local") == "hasband"){
+     var url = "https://support-spouses-communication.herokuapp.com/v1/hasbands/"+window.localStorage.getItem("id_local")
      dd_seibetu = "男性"
-   }else if(dd_seibetu == "wife"){
+   }else{
+     var url = "https://support-spouses-communication.herokuapp.com/v1/wives/"+window.localStorage.getItem("id_local")
      dd_seibetu = "女性"
    }
+   $.ajax(url,{
+       type: 'GET',
+       async: false,
+       timeout: 10000,
+   }).done(function(data) {
+     dd_account = data.name;
+     dd_email = data.email;
+     dd_date = data.birthday;
+     //console.log(data);
+   }).fail(function(jqXHR, statusText, errorThrown) {
+     alert("情報取得できませんでした。");
+     console.log("エラー");
+   });
 
   /*
    * 確認用テキストにアカウント情報変数の値を入れる
    */
-   $("#dd_account").text(dd_account); //アカウント名
-   $("#dd_email").text(dd_email);//Eメール
-   $("#dd_password").text(dd_password);//パスワード
-   $("#dd_date").text(dd_date);//生年月日
+   $(":text[name='account-name']").val(dd_account); //アカウント名
+   $("input[type=email][name=email]").val(dd_email);//Eメール
+   $("#dd_password").text("********");//パスワード
+   $("input[type=date][name=birthday]").val(dd_date);//生年月日
    $("#dd_seibetu").text(dd_seibetu);//性別
 });
+
+function update(){
+  let name      = $(":text[name='account-name']").val();
+  let email     = $("input[type=email][name=email]").val();
+  let birthday  = $("input[type=date][name=birthday]").val();
+
+  if(window.localStorage.getItem("seibetu_local") == "hasband"){
+    var url   = "https://support-spouses-communication.herokuapp.com/v1/hasbands/"+window.localStorage.getItem("id_local");
+    var data  = {"hasband": {"name": name, "email": email, "birthday": birthday}};
+  }else{
+    var url   = "https://support-spouses-communication.herokuapp.com/v1/wives/"+window.localStorage.getItem("id_local");
+    var data  = {"wife": {"name": name, "email": email, "birthday": birthday}};
+  }
+console.log(url);
+  $.ajax(url,{
+      type: 'POST',
+      async: false,
+      timeout: 10000,
+      headers: {
+        'Authorization': window.localStorage.getItem("access_token_local"),
+        'UserType': window.localStorage.getItem("seibetu_local"),
+      },
+      data: data,
+  }).done(function(data) {
+    alert("更新しました。");
+    window.location.href = 'setting.html';
+  }).fail(function(jqXHR, statusText, errorThrown) {
+    alert("情報更新できませんでした。");
+  });
+
+}
