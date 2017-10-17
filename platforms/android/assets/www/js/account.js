@@ -130,6 +130,10 @@ $(document).ready(function(){
           window.localStorage.setItem("email_local",email);
           window.localStorage.setItem("seibetu_local",role);
 
+          window.localStorage.setItem("name_local",account);
+          window.localStorage.setItem("password_local",password);
+          window.localStorage.setItem("date_local",date);
+
           window.location.href = 'partner.html'; //画面遷移
       });
     });
