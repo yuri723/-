@@ -114,6 +114,8 @@ function updateTalk(){
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
     console.log("エラー");
+    console.log(window.localStorage.getItem("access_token_local"));
+    console.log(window.localStorage.getItem("family_id"));
   });
   setTimeout("updateTalk()", 10000);
 }
@@ -121,4 +123,5 @@ function updateTalk(){
 
 $(document).ready(function(){
   setTimeout("updateTalk()", 10000);
+  $(window).scrollTop($("#under").offset().top);
 });
