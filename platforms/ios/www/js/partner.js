@@ -46,8 +46,6 @@ $(function(){
 
 $(document).ready(function(){
   var checkPartner = function(){
-    console.log(window.localStorage.getItem("access_token_local"));
-    console.log(window.localStorage.getItem("seibetu_local"));
     $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{
         type: 'GET',
         headers: {
