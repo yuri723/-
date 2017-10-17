@@ -103,9 +103,9 @@ $(document).ready(function(){
    */
     $(document).on('click','#send',function(){
       if(role == "hasband"){
-        var data = {"hasband": {"email": email, "password": password}};
+        var data = {"hasband": {"email": email, "password": password, "name": account, "birthday": date}};
       }else{
-        var data = {"wife": {"email": email, "password": password}};
+        var data = {"wife": {"email": email, "password": password, "name": account, "birthday": date}};
       }
       console.log(data);
       $.ajax(url,
