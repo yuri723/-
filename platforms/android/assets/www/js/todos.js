@@ -9,7 +9,7 @@ $(document).ready(function(){
   }).done(function(data) {
     data.forEach(function(val,index,ar){
       $("#must_todos").append("<div>")
-      $("#must_todos").append("締め切り:"+val.deadline+"<br>内容:"+val.statement+"<br>作成者:"+val.user_type+"<br>担当:"+val.personnel)
+      $("#must_todos").append("締め切り:"+val.deadline+"<br>内容:"+val.statement+"<br>作成者:"+val.user_type)
       $("#must_todos").append("</div>")
       $("#must_todos").append("<hr>")
      });
@@ -29,7 +29,7 @@ $(document).ready(function(){
   }).done(function(data) {
     data.forEach(function(val,index,ar){
       $("#want_todos").append("<div>")
-      $("#want_todos").append("締め切り:"+val.deadline+"<br>内容:"+val.statement+"<br>作成者:"+val.user_type+"<br>担当:"+val.personnel)
+      $("#want_todos").append("締め切り:"+val.deadline+"<br>内容:"+val.statement+"<br>作成者:"+val.user_type)
       $("#want_todos").append("</div>")
       $("#want_todos").append("<hr>")
      });

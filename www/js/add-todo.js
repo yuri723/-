@@ -4,17 +4,9 @@ $(document).ready(function(){
     console.log(type)
     var deadline  = $("#deadline").val()+"T00:00";
     var statement = $("#statement").val();
-    var assign    = $('input[name=assign]:checked').val();
-    if(window.localStorage.getItem("seibetu_local") == "hasband" && assign == "opposite"){
-      assign = "wife"
-    }else if(window.localStorage.getItem("seibetu_local") == "hasband" && assign == "myself"){
-      assign = "hasband"
-    }
-    if(window.localStorage.getItem("seibetu_local") == "wife" && assign == "opposite"){
-      assign = "hasband"
-    }else if(window.localStorage.getItem("seibetu_local") == "wife" && assign == "myself"){
-      assign = "wife"
-    }
+    var user_id = window.localStorage.getItem("id_local")
+    var user_type = window.localStorage.getItem("seibetu_local")
+
 
     $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/"+type,{
         type: 'POST',
@@ -24,7 +16,8 @@ $(document).ready(function(){
         },
         data: {"deadline": deadline,
                "statement": statement,
-               "personnel": assign},
+               "user_id":user_id,
+               "user_type":user_type},
         dataType: 'json',
         timeout: 10000,
     }).done(function(data) {
