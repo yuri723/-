@@ -60,6 +60,27 @@
         div#tab1 { border: 2px solid #DDD; background-color: #fbfbfb; }
         div#tab2 { border: 2px solid #DDD; background-color: #fbfbfb; }
         div.tab p { margin: 0.5em; }
+
+        .plusbtn{
+         display: inline-block;
+         text-decoration: none;
+         background: #179A46;
+         color: #FFF;
+         width: 55px;
+         height: 55px;
+         line-height: 55px;
+         border-radius: 50%;
+         text-align: center;
+         vertical-align: middle;
+         overflow: hidden;
+         transition: .4s;
+         font-size:50px;
+         }
+
+         .plusbtn:hover{
+         background: #808080;
+         }
+
        </style>
 
     </head>
@@ -96,15 +117,15 @@
        <div id="want_todos">
 
        </div>
-       <a href="add-todo.html" style="position: fixed; bottom: 20px; right: 20px;">TODO追加</a>
-     </div>
+       <a class="plusbtn" href="add-todo.html" style="position: fixed; bottom: 20px; right: 20px;">+</a>
+       </div>
 
      <div id="tab2" class="tab">
-        
+
         <div id="must_todos">
 
         </div>
-        <a href="add-todo2.html" style="position: fixed; bottom: 20px; right: 20px;">TODO追加</a>
+        <a class="plusbtn" href="add-todo2.html" style="position: fixed; bottom: 20px; right: 20px;">+</a>
   　 </div>
 
 
