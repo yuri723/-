@@ -1,51 +1,57 @@
 function add_statement(statement, user_type,created_at){
 
-
+  //時間表示の処理
+   var time_unix = created_at;
+   var time_month = time_unix.substr(5,2);
+   var time_date = time_unix.substr(8,2);
+   var time_hour = time_unix.substr(11,2);
+   var time_min = time_unix.substr(14,2);
+   var time_mdhm = time_month + "/"+time_date + "　"+ time_hour +":"+time_min ;
 
   if(user_type == capitalizeFirstLetter(window.localStorage.getItem("seibetu_local"))){
     if(statement == "mark_face_angry"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_angry.png' width='40' height='40' />"+"</div><br>"+created_at);
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_angry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_ase"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_ase.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_ase.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_cry"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_cry.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_cry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_hehe"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_hehe.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_hehe.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_jito"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_jito.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_jito.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_laugh"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_laugh.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_laugh.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_odoroki"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_smile"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_smile.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_smile.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_tere"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_tere.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_tere.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else {
-      $("#talk").append("<div>You:"+statement+"</div><br>"+created_at);
+      $("#talk").append("<div>You:"+statement+ "　"+time_mdhm + "</div><br>");
     }
 
   }else{
     if(statement == "mark_face_angry"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_angry.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_angry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_ase"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_ase.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_ase.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_cry"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_cry.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_cry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_hehe"){
       $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_hehe.png' width='40' height='40' />"+"</div><br>");
     }else if(statement == "mark_face_jito"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_jito.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_jito.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_laugh"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_laugh.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_laugh.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_odoroki"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_smile"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_smile.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_smile.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else if(statement == "mark_face_tere"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_tere.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_tere.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
     }else{
-      $("#talk").append("<div style='text-align: right;'>Partner:"+statement+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+statement+ "　"+time_mdhm + "</div><br>");
     }
 
   }
@@ -114,7 +120,8 @@ function send(code){
 }
 
 $(document).on("click", "#stamp1", function () {
-
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_angry";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
@@ -134,7 +141,8 @@ $(document).on("click", "#stamp1", function () {
 });
 
 $(document).on("click", "#stamp2", function () {
-
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_ase";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
@@ -154,7 +162,8 @@ $(document).on("click", "#stamp2", function () {
 });
 
 $(document).on("click", "#stamp3", function () {
-
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_cry";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
@@ -174,7 +183,8 @@ $(document).on("click", "#stamp3", function () {
 });
 
 $(document).on("click", "#stamp4", function () {
-
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_hehe";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
@@ -194,7 +204,8 @@ $(document).on("click", "#stamp4", function () {
 });
 
 $(document).on("click", "#stamp5", function () {
-
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_jito";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
@@ -214,7 +225,8 @@ $(document).on("click", "#stamp5", function () {
 });
 
 $(document).on("click", "#stamp6", function () {
-
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_laugh";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
@@ -234,7 +246,8 @@ $(document).on("click", "#stamp6", function () {
 });
 
 $(document).on("click", "#stamp7", function () {
-
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_odoroki";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
@@ -254,8 +267,177 @@ $(document).on("click", "#stamp7", function () {
 });
 
 $(document).on("click", "#stamp8", function () {
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
+    var statement = "mark_face_smile";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
 
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#stamp9", function () {
+  $(".hid").hide();//スタンプフォームを隠す
+  stamptype = true;
     var statement = "mark_face_tere";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
+
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#message1", function () {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+    var statement = "ありがとう";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
+
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#message2", function () {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+    var statement = "いいね";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
+
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#message3", function () {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+    var statement = "了解";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
+
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#message4", function () {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+    var statement = "帰ったら話そう";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
+
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#message5", function () {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+    var statement = "お疲れ様";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
+
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#message6", function () {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+    var statement = "どういたしまして";
+    $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+        type: 'POST',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        data: {"statement": statement},
+        dataType: 'json',
+        timeout: 10000,
+    }).done(function(data) {
+
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+
+});
+
+$(document).on("click", "#message7", function () {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+    var statement = "楽しそう";
     $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
         type: 'POST',
         headers: {
@@ -296,7 +478,7 @@ function updateTalk(){
 
   // TODO 秒が-になる雑な計算どうにか
   if(old_seconds < 0){
-    setTimeout("updateTalk()", 10000);
+    setTimeout("updateTalk()", 7000);
     return;
   }
 
@@ -315,26 +497,7 @@ function updateTalk(){
     data.forEach(function(val,index,ar){
       console.log(val);
       console.log(data);
-      // 日時データを要素分解
-    var created_at = result[i]['created_at'].split(" ");
 
-    // 投稿日時変換 "Mon Dec 01 14:24:26 +0000 2008" -> "Dec 01, 2008 14:24:26"
-    var post_date  = created_at[1] + " "
-                  + created_at[2] + ", "
-                  + created_at[5] + " "
-                  + created_at[3];
-
-    // 日時データ処理
-    var date = new Date(post_date);     // 日付文字列 -> オブジェクト変換
-    date.setHours(date.getHours() + 9); // UTC -> JST (+9時間)
-    var mon  = date.getMonth() + 1;     // 月取得
-    var day  = date.getDate();          // 日取得
-
-    console.log("ここから");
-    console.log(created_at);
-    console.log(date);
-    console.log(mon);
-    console.log(day);
        add_statement(val.statement, val.user_type,val.created_at);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
@@ -342,11 +505,45 @@ function updateTalk(){
     console.log(window.localStorage.getItem("access_token_local"));
     console.log(window.localStorage.getItem("family_id"));
   });
-  setTimeout("updateTalk()", 10000);
+  setTimeout("updateTalk()", 7000);
 }
 
+var stamptype = true ;//スタンプフォームが表示されているとき→false
+var messagetype = true ;//メッセージフォームが表示されているとき→false
 
 $(document).ready(function(){
-  setTimeout("updateTalk()", 10000);
+  setTimeout("updateTalk()", 7000);
   $(window).scrollTop($("#under").offset().top);
+  $(".hid").hide();//スタンプフォームを隠す
+  $(".message").hide();//メッセージフォームを隠す
+
+});
+
+
+  $(document).on('click','#stamp',function(){
+    $(".message").hide();//メッセージフォームを隠す
+    messagetype = true;
+  if(stamptype == true){
+    $(".hid").show();//スタンプフォームを表示する
+    stamptype = false;
+  }else {
+    $(".hid").hide();//スタンプフォームを隠す
+    stamptype = true;
+  }
+
+  messagetype = true;
+
+});
+
+$(document).on('click','#message',function(){
+$(".hid").hide();//スタンプフォームを隠す
+stamptype = true;
+if(messagetype == true){
+  $(".message").show();//メッセージフォームを表示する
+  messagetype = false;
+}else {
+  $(".message").hide();//メッセージフォームを隠す
+  messagetype = true;
+}
+
 });
