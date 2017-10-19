@@ -26,6 +26,26 @@
          background-color: #179A46;
          color: #fff;
          padding: 8px}
+
+         .photobtn{
+          display: inline-block;
+          text-decoration: none;
+          background: #179A46;
+          color: #FFF;
+          width: 55px;
+          height: 55px;
+          line-height: 55px;
+          border-radius: 50%;
+          text-align: center;
+          vertical-align: middle;
+          overflow: hidden;
+          transition: .4s;
+          font-size:50px;
+          }
+
+          .photobtn:hover{
+          background: #808080;
+          }
        </style>
 
     </head>
@@ -56,7 +76,7 @@
 
       </div>
 
-      <button id="photo" style="position: fixed; bottom: 20px; right: 20px;">画像追加</button>
+      <button id="photo" class="photobtn"style="position: fixed; bottom: 20px; right: 20px;">+</button>
 
       <script type="text/javascript" src="cordova.js"></script>
       <script type="text/javascript" src="js/album.js"></script>

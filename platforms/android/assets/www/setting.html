@@ -30,6 +30,16 @@
          color: #fff;
          padding: 8px}
 
+         dt{font-weight: bold;}
+
+         .kousinbtn{
+         border-radius:10px;
+         width:150px;
+         height:30px;
+         color:#fff;
+         font-weight:bold;
+         background:gray;
+         box-shadow:black 2px 2px;}
 
        </style>
 
@@ -59,16 +69,16 @@
 
       <div>
       <dl>
-      <dt >アカウント名</dt><dd id="dd_account"><input type="text" value="hoge" name="account-name"></dd>
+      <dt >アカウント名</dt><dd id="dd_account"><input type="text" value="hoge" name="account-name" style="border:solid 2px gray;width:90%"></dd>
       <dt >性別</dt><dd id="dd_seibetu">dd_seibetu</dd>
-      <dt >生年月日</dt><dd id="dd_date"><input type="date" value="hoge" name="birthday"></dd>
-      <dt >メールアドレス</dt><dd id="dd_email"><input type="email" value="hoge" name="email"></dd>
+      <dt >生年月日</dt><dd id="dd_date"><input type="date" value="hoge" name="birthday" style="border:solid 2px gray;width:90%"></dd>
+      <dt >メールアドレス</dt><dd id="dd_email"><input type="email" value="hoge" name="email" style="border:solid 2px gray;width:90%"></dd>
       <dt >パスワード</dt><dd id="dd_password">dd_password</dd>
       </dl>
     </div>
 
-    <div>
-      <button name="update" onClick="update()">更新</button>
+    <div align="center">
+      <button class="kousinbtn"name="update" onClick="update()">更新</button>
     </div>
 
   </main>
