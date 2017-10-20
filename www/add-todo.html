@@ -23,11 +23,21 @@
        </script>
 
        <style>
-         .sr-only{ color: red; }
+         h6{font-weight: bold;}
+
          h5{
          background-color: #179A46;
          color: #fff;
          padding: 8px}
+
+         .decidebtn{
+         border-radius:10px;
+         width:150px;
+         height:30px;
+         color:#fff;
+         font-weight:bold;
+         background:gray;
+         box-shadow:black 2px 2px;}
 
        </style>
 
@@ -62,15 +72,21 @@
           <input name="type" type="radio" id="must" value="must_todos"/>
           <label for="must">やらなければいけないこと</label>
           <br>
+          <h6>
           期限
-          <input type="date" id="deadline">
+          </h6>
+          <input type="date" id="deadline" style="border:solid 2px gray;width:90%">
           <br>
+          <h6>
           内容
-          <input type="text" id="statement">
-          
+          </h6>
+          <input type="text" id="statement" style="border:solid 2px gray;width:90%">
+
         </p>
 
-        <button id="send">決定</button>
+        <div align="center">
+        <button id="send" class="decidebtn" >決定</button>
+        </div>
       </div>
 
 
