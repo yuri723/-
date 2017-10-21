@@ -18,24 +18,14 @@ $(document).ready(function(){
       $("#must_todos").append("【締め切り】"+time_ymd+"<br>【内容】"+val.statement+"<br>【作成者】"+val.user_type)
       $("#must_todos").append("</div>")
       $("#must_todos").append("<hr>")
+
+
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("エラー");
   });
 });
 
-
-$(function(){
-  //一緒にやりたいことリストがクリックされたときの処理
-   $("#want_todos").on("click", { class: "list_want_div" }, function() {
-        console.log("クリックされたよ");
-        $(this).remove();
-   });
-  //やらなければならないことことリストがクリックされたときの処理
-  $("#must_todos").on("click", { class: "list_must_div" }, function() {
-        console.log("クリックされたよ");
-  });
-})
 
 $(document).ready(function(){
   $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/want_todos",{
@@ -57,8 +47,27 @@ $(document).ready(function(){
       $("#want_todos").append("【締め切り】"+time_ymd+"<br>【内容】"+val.statement+"<br>【作成者】"+val.user_type)
       $("#want_todos").append("</div>")
       $("#want_todos").append("<hr>")
+
      });
+ $(".list_want").each(function(index) { $("div").attr("id", "want"+(index+1)); }); //todoリストの内容にidを割り当てる
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("エラー");
+  });
+
+});
+
+
+$(document).ready(function(){
+
+  //一緒にやりたいことリストがクリックされたときの処理
+   $(".list_want").on("click", { class: "list_want_div" }, function() {
+        console.log("クリックされたよ");
+        var id =  $(this).attr("id");//クリックされたidを変数idに入れる
+        console.log(id);//クリックされたidをコンソールに出力
+
+   });
+  //やらなければならないことことリストがクリックされたときの処理
+  $("#must_todos").on("click", { class: "list_must_div" }, function() {
+        console.log("クリックされたよ");
   });
 });
