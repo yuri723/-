@@ -31,18 +31,27 @@
          padding: 8px}
 
          {
-	margin: 0;
-	padding: 0;
-}
+	        margin: 0;
+	        padding: 0;
+         }
 
-#grid {
-	width: 450px;
-}
-li {
-	margin: 5px;
-	float: left;
-	list-style: none;
-}
+         #grid {
+	       width: 450px;
+         }
+         li {
+	       margin: 5px;
+	       float: left;
+	       list-style: none;
+         }
+
+         #grid2 {
+	       width: 600px;
+         }
+         li {
+	       margin: 5px;
+	       float: left;
+	       list-style: none;
+         }
 
        </style>
 
@@ -65,7 +74,7 @@ li {
 	     </header>
 
 	    <main role="main">
-        <h5 align="center">
+        <h5 align="center" style="position: fixed;top:0; width:100%;">
         	トークルーム
     	  </h5>
 	    </main>
@@ -73,28 +82,54 @@ li {
       <div id="talk">
 
       </div>
-      <div class="under" id="under">～最下部～</div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="under" id="under" style=" color: #fff;">～最下部～</div>
+      <br>
+      <br>
+      <br>
       <br>
       <br>
       <br>
 
- <!--
-      <div id="grid" class="stamp">
+
+      <div id="grid" class="stamp hid"  style="font-size: 1.2em; color: #fff; background-color:#179A46; position:fixed; top: 82%; left: 50%; transform: translate(-50%, -50%);width:100%;">
+　　　スタンプ
       <ul>
-  <li><button type="submit" id="stamp1" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_angry.png" width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp2" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_ase.png" width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp3" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_cry.png" width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp4" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_hehe.png"width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp5" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_jito.png" width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp6" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_laugh.png" width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp7" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_odoroki.png" width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp8" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_smile.png"width="40" height="40" /></button></li>
-  <li><button type="submit" id="stamp9" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_tere.png"width="40" height="40" /></button></li>
-  </ul>
-  </div>
+      <li><button type="button" id="stamp1" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_angry.png" width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp2" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_ase.png" width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp3" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_cry.png" width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp4" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_hehe.png"width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp5" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_jito.png" width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp6" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_laugh.png" width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp7" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_odoroki.png" width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp8" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_smile.png"width="40" height="40" /></button></li>
+      <li><button type="button" id="stamp9" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_tere.png"width="40" height="40" /></button></li>
+      </ul>
+      </div>
 
--->
-      <input type="text" id="send" placeholder="メッセージ" onkeypress="send(event.keyCode);" style="background-color:#179A46;border: 2px #179A46 solid; width:100%; position: fixed;  bottom: 0;">
+      <div id="girid2" class="message" style="font-size: 1.2em; color:#fff;background-color:#179A46;position:fixed; top: 82%; left: 50%; transform: translate(-50%, -50%);width:100%;">
+      　　メッセージ
+        <ul>
+          <li><button type="button" id="message1" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">ありがとう</button></li>
+          <li><button type="button" id="message2" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">いいね</button></li>
+          <li><button type="button" id="message3" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">了解</button></li>
+          <li><button type="button" id="message4" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">帰ったら話そう</button></li>
+          <li><button type="button" id="message5" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">お疲れ様</button></li>
+          <li><button type="button" id="message6" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">どういたしまして</button></li>
+          <li><button type="button" id="message7" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">楽しそう</button></li>
+
+
+
+        </ul>
+      </div>
+
+      <input type="button" id="stamp"  value="スタンプ" style="font-size: 1.4em; color: #fff;background-color:#179A46;border: 2px #179A46 solid;left: 2%; width:47%; position: fixed;  bottom: 0;">
+      <input type="button" id="message"  value="メッセージ" style="font-size: 1.4em; color: #fff;background-color:#179A46;border: 2px #179A46 solid; left: 51%;width:47%; position: fixed;  bottom: 0;">
+      <!--input type="text" id="send" placeholder="メッセージ" onkeypress="send(event.keyCode);" style="background-color:#179A46;border: 2px #179A46 solid; width:100%; position: fixed;  bottom: 0;"-->
 
 </body>
 </html>
