@@ -52,7 +52,6 @@ function update(){
     var url   = "https://support-spouses-communication.herokuapp.com/v1/wives/"+window.localStorage.getItem("id_local");
     var data  = {"wife": {"name": name, "email": email, "birthday": birthday}};
   }
-console.log(url);
   $.ajax(url,{
       type: 'POST',
       async: false,

@@ -43,13 +43,12 @@ $(document).ready(function(){
       var time_date = time_unix.substr(8,2);
       var time_ymd = time_year+"/"+time_month + "/"+time_date ;
 
-      $("#want_todos").append("<div class='list_want_div'>")
+      $("#want_todos").append("<div class='list_want_div' name='todo"+index+"'>")
       $("#want_todos").append("【締め切り】"+time_ymd+"<br>【内容】"+val.statement+"<br>【作成者】"+val.user_type)
       $("#want_todos").append("</div>")
       $("#want_todos").append("<hr>")
 
      });
- $(".list_want").each(function(index) { $("div").attr("id", "want"+(index+1)); }); //todoリストの内容にidを割り当てる
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("エラー");
   });
