@@ -1,4 +1,4 @@
-function add_statement(statement, user_type,created_at){
+function add_statement(statement, user_type, name, created_at){
 
   //時間表示の処理
    var time_unix = created_at;
@@ -10,48 +10,48 @@ function add_statement(statement, user_type,created_at){
 
   if(user_type == capitalizeFirstLetter(window.localStorage.getItem("seibetu_local"))){
     if(statement == "mark_face_angry"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_ase"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_ase.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_ase.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_cry"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_cry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_cry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_hehe"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_hehe.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_hehe.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_jito"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_jito.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_jito.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_laugh"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_laugh.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_laugh.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_odoroki"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_odoroki.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_smile"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_smile.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_smile.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_tere"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_tere.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":<img src='img/mark_face_tere.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else {
-      $("#talk").append("<div>You:"+statement+ "<br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div>"+name+":"+statement+ "<br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }
 
   }else{
     if(statement == "mark_face_angry"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_ase"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_ase.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_ase.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_cry"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_cry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_cry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_hehe"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_hehe.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_hehe.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_jito"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_jito.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_jito.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_laugh"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_laugh.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_laugh.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_odoroki"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_odoroki.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_smile"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_smile.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_smile.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_tere"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_tere.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":<img src='img/mark_face_tere.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else{
-      $("#talk").append("<div style='text-align: right;'>Partner:"+statement+ "<br /><font size='1'>"+time_mdhm + "</font></div><br>");
+      $("#talk").append("<div style='text-align: right;'>"+name+":"+statement+ "<br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }
 
   }
@@ -89,7 +89,7 @@ $(document).ready(function(){
       timeout: 10000,
   }).done(function(data) {
     data.forEach(function(val,index,ar){
-       add_statement(val.statement, val.user_type,val.created_at);
+       add_statement(val.statement, val.user_type, val.name, val.created_at);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("取得エラー");
@@ -493,7 +493,7 @@ function updateTalk(){
   }).done(function(data) {
     console.log(data);
     data.forEach(function(val,index,ar){
-       add_statement(val.statement, val.user_type,val.created_at);
+       add_statement(val.statement, val.user_type, val.name, val.created_at);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
 
