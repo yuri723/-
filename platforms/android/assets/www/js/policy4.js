@@ -4,7 +4,7 @@ $(document).ready(function(){
   $('#send').on('click',function(){
     var answer = $('input[name=answer]:checked').val();
     console.log(answer);
-    $.ajax("https://support-spouses-communication.herokuapp.com/v1/question_answers",{
+    $.ajax("http://54.65.55.210/v1/question_answers",{
         type: 'POST',
         headers: {
           'Authorization': window.localStorage.getItem("access_token_local"),

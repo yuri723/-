@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $.ajax("https://support-spouses-communication.herokuapp.com//v1/question_answers/",{
+  $.ajax("http://54.65.55.210//v1/question_answers/",{
       type: 'GET',
       async: false,
       headers: {

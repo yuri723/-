@@ -4,10 +4,10 @@ $(function(){
     var email = $("#pare-email").val();
 
     if (window.localStorage.getItem("seibetu_local") == "hasband"){
-      search_url = "https://support-spouses-communication.herokuapp.com/v1/hasbands/search_partner?partner_email=";
+      search_url = "http://54.65.55.210/v1/hasbands/search_partner?partner_email=";
       type = "hasband";
     }else{
-      search_url = "https://support-spouses-communication.herokuapp.com/v1/wives/search_partner?partner_email=";
+      search_url = "http://54.65.55.210/v1/wives/search_partner?partner_email=";
       type = "wife";
     }
 
@@ -23,7 +23,7 @@ $(function(){
     }).done(function(data) {
       if(data.length == 1){
         // ユーザ登録
-        $.ajax("https://support-spouses-communication.herokuapp.com/v1/families",{
+        $.ajax("http://54.65.55.210/v1/families",{
             type: 'POST',
             headers: {
               'Authorization': window.localStorage.getItem("access_token_local"),
@@ -34,7 +34,7 @@ $(function(){
             timeout: 10000,
         }).done(function(data) {
           // 家族情報取得
-          $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{
+          $.ajax("http://54.65.55.210/v1/families/search ",{
               type: 'GET',
               headers: {
                 'Authorization': window.localStorage.getItem("access_token_local"),
@@ -43,7 +43,7 @@ $(function(){
               timeout: 10000,
           }).done(function(data) {
               window.localStorage.setItem("family_id",data.id);
-              window.location.href = 'policy.html';
+              window.location.href = 'child.html';
           }).fail(function(jqXHR, statusText, errorThrown) {
             alert("家族登録に失敗しました。");
           });
@@ -61,7 +61,7 @@ $(function(){
 // 相手によって登録されないか定期的にチェック
 $(document).ready(function(){
   var checkPartner = function(){
-    $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{
+    $.ajax("http://54.65.55.210/v1/families/search ",{
         type: 'GET',
         headers: {
           'Authorization': window.localStorage.getItem("access_token_local"),
@@ -72,7 +72,7 @@ $(document).ready(function(){
       if(data != null){
         alert("相手によって登録されています。次の画面へ移動します。");
         window.localStorage.setItem("family_id",data.id);
-        window.location.href = 'policy.html';
+        window.location.href = 'child.html';
       }
     }).fail(function(jqXHR, statusText, errorThrown) {
       return;

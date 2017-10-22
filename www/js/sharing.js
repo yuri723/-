@@ -5,7 +5,7 @@ $(document).ready(function(){
     var partner_answer = [];
     var your_answer = [];
 
-    $.ajax("https://support-spouses-communication.herokuapp.com//v1/question_answers/",{
+    $.ajax("http://54.65.55.210//v1/question_answers/",{
         type: 'GET',
         async: false,
         headers: {
@@ -21,7 +21,7 @@ $(document).ready(function(){
     }).fail(function(jqXHR, statusText, errorThrown) {
     });
 
-    $.ajax("https://support-spouses-communication.herokuapp.com//v1/question_answers/my_answers",{
+    $.ajax("http://54.65.55.210//v1/question_answers/my_answers",{
         type: 'GET',
         async: false,
         headers: {

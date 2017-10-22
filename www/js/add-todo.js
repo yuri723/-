@@ -8,7 +8,7 @@ $(document).ready(function(){
     var user_type = window.localStorage.getItem("seibetu_local")
 
 
-    $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/"+type,{
+    $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/"+type,{
         type: 'POST',
         headers: {
           'Authorization': window.localStorage.getItem("access_token_local"),

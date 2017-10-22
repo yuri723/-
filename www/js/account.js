@@ -56,11 +56,11 @@ $(document).ready(function(){
 
     if(flagman==true){  //チェックボックスが男に入っていたら
       var seibetu = "男性";
-      var url = "https://support-spouses-communication.herokuapp.com/v1/hasbands"
+      var url = "http://54.65.55.210/v1/hasbands"
       var role = "hasband"
     }else if(flagwoman==true){  //チェックボックスが女に入っていたら
       var seibetu = "女性";
-      var url = "https://support-spouses-communication.herokuapp.com/v1/wives"
+      var url = "http://54.65.55.210/v1/wives"
       var role = "wife"
     }
 

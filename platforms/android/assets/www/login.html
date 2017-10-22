@@ -47,7 +47,7 @@
                 window.localStorage.setItem("email_local",response["mail"]);
                 window.localStorage.setItem("seibetu_local",sex);
 
-                    $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/search ",{
+                    $.ajax("http://54.65.55.210/v1/families/search ",{
                         type: 'GET',
                         headers: {
                           'Authorization': window.localStorage.getItem("access_token_local"),

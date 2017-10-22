@@ -19,7 +19,7 @@ function takePictures(){
 }
 // 写真撮影が成功した時
 function cameraSuccess(image){
-    $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/albums",{
+    $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/albums",{
         type: 'POST',
         headers: {
           'Authorization': window.localStorage.getItem("access_token_local"),
@@ -40,7 +40,7 @@ function cameraError(message){
 }
 
 $(document).ready(function(){
-  $.ajax("https://support-spouses-communication.herokuapp.com//v1/families/"+window.localStorage.getItem("family_id")+"/albums",{
+  $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/albums",{
       type: 'GET',
       headers: {
         'Authorization': window.localStorage.getItem("access_token_local"),
@@ -50,7 +50,7 @@ $(document).ready(function(){
   }).done(function(data) {
     data.forEach(function(val,index,ar){
       console.log(val);
-      $("#content").append("<div>追加者:"+val.wife+"<br>追加日:"+val.created_at+"<br><img src='https://support-spouses-communication.herokuapp.com"+val.image.url+"'>");
+      $("#content").append("<div>追加者:"+val.wife+"<br>追加日:"+val.created_at+"<br><img src='http://54.65.55.210"+val.image.url+"'>");
       $("#content").append("</div>");
       $("#content").append("<hr>");
     });

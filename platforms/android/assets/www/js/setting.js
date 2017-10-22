@@ -10,10 +10,10 @@ $(document).ready(function(){
    var dd_seibetu;
 
    if(window.localStorage.getItem("seibetu_local") == "hasband"){
-     var url = "https://support-spouses-communication.herokuapp.com/v1/hasbands/"+window.localStorage.getItem("id_local")
+     var url = "http://54.65.55.210/v1/hasbands/"+window.localStorage.getItem("id_local")
      dd_seibetu = "男性"
    }else{
-     var url = "https://support-spouses-communication.herokuapp.com/v1/wives/"+window.localStorage.getItem("id_local")
+     var url = "http://54.65.55.210/v1/wives/"+window.localStorage.getItem("id_local")
      dd_seibetu = "女性"
    }
    $.ajax(url,{
@@ -46,10 +46,10 @@ function update(){
   let birthday  = $("input[type=date][name=birthday]").val();
 
   if(window.localStorage.getItem("seibetu_local") == "hasband"){
-    var url   = "https://support-spouses-communication.herokuapp.com/v1/hasbands/"+window.localStorage.getItem("id_local");
+    var url   = "http://54.65.55.210/v1/hasbands/"+window.localStorage.getItem("id_local");
     var data  = {"hasband": {"name": name, "email": email, "birthday": birthday}};
   }else{
-    var url   = "https://support-spouses-communication.herokuapp.com/v1/wives/"+window.localStorage.getItem("id_local");
+    var url   = "http://54.65.55.210/v1/wives/"+window.localStorage.getItem("id_local");
     var data  = {"wife": {"name": name, "email": email, "birthday": birthday}};
   }
   $.ajax(url,{

@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/must_todos",{
+  $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/must_todos",{
       type: 'GET',
       headers: {
         'Authorization': window.localStorage.getItem("access_token_local"),
@@ -28,7 +28,7 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-  $.ajax("https://support-spouses-communication.herokuapp.com/v1/families/"+window.localStorage.getItem("family_id")+"/want_todos",{
+  $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/want_todos",{
       type: 'GET',
       headers: {
         'Authorization': window.localStorage.getItem("access_token_local"),
@@ -61,6 +61,7 @@ $(document).ready(function(){
   //一緒にやりたいことリストがクリックされたときの処理
    $(".list_want").on("click", { class: "list_want_div" }, function() {
         console.log("クリックされたよ");
+        console.log(this);
         var id =  $(this).attr("id");//クリックされたidを変数idに入れる
         console.log(id);//クリックされたidをコンソールに出力
 

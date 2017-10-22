@@ -85,7 +85,7 @@ $(document).ready(function(){
    * 送信ボタンが押されたら
    */
     $(document).on('click','#send',function(){
-      $.ajax("https://support-spouses-communication.herokuapp.com/v1/children",
+      $.ajax("http://54.65.55.210/v1/children",
         {
         type: 'POST',
         headers: {
