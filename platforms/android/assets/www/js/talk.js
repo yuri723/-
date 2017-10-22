@@ -6,52 +6,52 @@ function add_statement(statement, user_type,created_at){
    var time_date = time_unix.substr(8,2);
    var time_hour = time_unix.substr(11,2);
    var time_min = time_unix.substr(14,2);
-   var time_mdhm = time_month + "/"+time_date + "　"+ time_hour +":"+time_min ;
+   var time_mdhm = time_month + "/"+time_date + " "+ time_hour +":"+time_min ;
 
   if(user_type == capitalizeFirstLetter(window.localStorage.getItem("seibetu_local"))){
     if(statement == "mark_face_angry"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_angry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_ase"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_ase.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_ase.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_cry"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_cry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_cry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_hehe"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_hehe.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_hehe.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_jito"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_jito.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_jito.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_laugh"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_laugh.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_laugh.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_odoroki"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_smile"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_smile.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_smile.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_tere"){
-      $("#talk").append("<div>You:"+"<img src='img/mark_face_tere.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+"<img src='img/mark_face_tere.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else {
-      $("#talk").append("<div>You:"+statement+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div>You:"+statement+ "<br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }
 
   }else{
     if(statement == "mark_face_angry"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_angry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_ase"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_ase.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_ase.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_cry"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_cry.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_cry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_hehe"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_hehe.png' width='40' height='40' />"+"</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_hehe.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_jito"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_jito.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_jito.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_laugh"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_laugh.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_laugh.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_odoroki"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_odoroki.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_smile"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_smile.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_smile.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_tere"){
-      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_tere.png' width='40' height='40' />"+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+"<img src='img/mark_face_tere.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else{
-      $("#talk").append("<div style='text-align: right;'>Partner:"+statement+ "　"+time_mdhm + "</div><br>");
+      $("#talk").append("<div style='text-align: right;'>Partner:"+statement+ "<br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }
 
   }
@@ -79,9 +79,6 @@ function add_statement(statement, user_type,created_at){
 
 // 全件取得
 $(document).ready(function(){
-  console.log("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/talks");
-  console.log(window.localStorage.getItem("access_token_local"));
-  console.log(window.localStorage.getItem("seibetu_local"));
   $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
       type: 'GET',
       headers: {
@@ -473,7 +470,7 @@ function updateTalk(){
   var day   = toDoubleDigits(now.getDate());
   var hours = toDoubleDigits(now.getHours());
   var minutes = toDoubleDigits(now.getMinutes());
-  var old_seconds = toDoubleDigits(now.getSeconds() - 10);
+  var old_seconds = toDoubleDigits(now.getSeconds() - 2);
   var now_seconds = toDoubleDigits(now.getSeconds());
 
   // TODO 秒が-になる雑な計算どうにか
@@ -484,8 +481,8 @@ function updateTalk(){
 
   var time_old = now.getFullYear()+"-"+month+"-"+day+"T"+hours+":"+minutes+":"+old_seconds;
   var time_now = now.getFullYear()+"-"+month+"-"+day+"T"+hours+":"+minutes+":"+now_seconds;
-  console.log(time_old);
-  console.log(time_now);
+  console.log("old:"+time_old);
+  console.log("now:"+time_now);
   $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/talks/search_from_range?start_time="+time_old+"&end_time="+time_now,{
       type: 'GET',
       headers: {
@@ -494,16 +491,12 @@ function updateTalk(){
       },
       timeout: 10000,
   }).done(function(data) {
+    console.log(data);
     data.forEach(function(val,index,ar){
-      console.log(val);
-      console.log(data);
-
        add_statement(val.statement, val.user_type,val.created_at);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
-    console.log("エラー");
-    console.log(window.localStorage.getItem("access_token_local"));
-    console.log(window.localStorage.getItem("family_id"));
+
   });
   setTimeout("updateTalk()", 2000);
 }

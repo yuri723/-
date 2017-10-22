@@ -14,7 +14,6 @@ $(document).ready(function(){
         },
         timeout: 10000,
     }).done(function(data) {
-      console.log(data);
       data.forEach(function(val,index,ar){
         partner_answer.push(val.answer);
       });
@@ -37,8 +36,15 @@ $(document).ready(function(){
     });
 
     if(partner_answer.length != 0 && your_answer.length != 0){
-      arr = diffArray(your_answer, partner_answer);
-      percent = arr.length / partner_answer.length * 100
+      var question_num = 4;
+      var matched = 0;
+      for(var i = 0; i < question_num; i++){
+        if (partner_answer[i] === your_answer[i]){
+          matched++;
+        }
+      }
+
+      percent = 100 - (matched / question_num * 100)
       $("#share").text("相手との違いは"+percent+"%です。");
     }
   }
