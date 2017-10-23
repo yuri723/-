@@ -8,6 +8,7 @@ function add_statement(statement, user_type, name, created_at){
    var time_min = time_unix.substr(14,2);
    var time_mdhm = time_month + "/"+time_date + " "+ time_hour +":"+time_min ;
 
+
   if(user_type == capitalizeFirstLetter(window.localStorage.getItem("seibetu_local"))){
     if(statement == "mark_face_angry"){
       $("#talk").append("<div>"+name+":<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
