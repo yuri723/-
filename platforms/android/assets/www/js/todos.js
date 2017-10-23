@@ -43,9 +43,9 @@ $(document).ready(function(){
       var time_date = time_unix.substr(8,2);
       var time_ymd = time_year+"/"+time_month + "/"+time_date ;
 
-      $("#want_todos").append("<div class='list_want_div' name='todo"+index+"'>")
+      $("#want_todos").append("<li class='list_want_div' name='todo"+index+"'>")
       $("#want_todos").append("【締め切り】"+time_ymd+"<br>【内容】"+val.statement+"<br>【作成者】"+val.user_type)
-      $("#want_todos").append("</div>")
+      $("#want_todos").append("</li>")
       $("#want_todos").append("<hr>")
 
      });
@@ -59,10 +59,10 @@ $(document).ready(function(){
 $(document).ready(function(){
 
   //一緒にやりたいことリストがクリックされたときの処理
-   $(".list_want").on("click", { class: "list_want_div" }, function() {
+   $(".list_want").on("click", "li.list_want_div", function() {
         console.log("クリックされたよ");
         console.log(this);
-        var id =  $(this).attr("id");//クリックされたidを変数idに入れる
+        var id =  $(this).attr("name");//クリックされたidを変数idに入れる
         console.log(id);//クリックされたidをコンソールに出力
 
    });
