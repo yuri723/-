@@ -1,6 +1,5 @@
 function add_statement(statement, user_type, name, created_at,user_id){
-   console.log("user_idは"+user_id);
-    console.log("user_typeは"+user_type);
+
   //時間表示の処理
    var time_unix = created_at;
    var time_month = time_unix.substr(5,2);
@@ -8,11 +7,10 @@ function add_statement(statement, user_type, name, created_at,user_id){
    var time_hour = time_unix.substr(11,2);
    var time_min = time_unix.substr(14,2);
    var time_mdhm = time_month + "/"+time_date + " "+ time_hour +":"+time_min ;
-  if(user_id==100&&user_type==hasband){
-     
-  }
 
-  if(user_type == capitalizeFirstLetter(window.localStorage.getItem("seibetu_local"))){
+  if(user_id==100&&user_type=="Hasband"){
+      $("#talk").append("<div style='text-align: right;'>"+"bot"+":"+statement+ "<br /><font size='1'>"+time_mdhm + "</font></div><br>");
+  }else if(user_type == capitalizeFirstLetter(window.localStorage.getItem("seibetu_local"))){
     if(statement == "mark_face_angry"){
       $("#talk").append("<div>"+name+":<img src='img/mark_face_angry.png' width='40' height='40' /><br /><font size='1'>"+time_mdhm + "</font></div><br>");
     }else if(statement == "mark_face_ase"){

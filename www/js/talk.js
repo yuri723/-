@@ -1,5 +1,5 @@
 function add_statement(statement, user_type, name, created_at,user_id){
-  
+
   //時間表示の処理
    var time_unix = created_at;
    var time_month = time_unix.substr(5,2);
