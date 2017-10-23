@@ -1,5 +1,6 @@
-function add_statement(statement, user_type, name, created_at){
-
+function add_statement(statement, user_type, name, created_at,user_id){
+   console.log("user_idは"+user_id);
+    console.log("user_typeは"+user_type);
   //時間表示の処理
    var time_unix = created_at;
    var time_month = time_unix.substr(5,2);
@@ -7,7 +8,9 @@ function add_statement(statement, user_type, name, created_at){
    var time_hour = time_unix.substr(11,2);
    var time_min = time_unix.substr(14,2);
    var time_mdhm = time_month + "/"+time_date + " "+ time_hour +":"+time_min ;
-
+  if(user_id==100&&user_type==hasband){
+     
+  }
 
   if(user_type == capitalizeFirstLetter(window.localStorage.getItem("seibetu_local"))){
     if(statement == "mark_face_angry"){
@@ -90,7 +93,7 @@ $(document).ready(function(){
       timeout: 10000,
   }).done(function(data) {
     data.forEach(function(val,index,ar){
-       add_statement(val.statement, val.user_type, val.name, val.created_at);
+       add_statement(val.statement, val.user_type, val.name, val.created_at,val.user_id);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("取得エラー");
@@ -494,7 +497,7 @@ function updateTalk(){
   }).done(function(data) {
     console.log(data);
     data.forEach(function(val,index,ar){
-       add_statement(val.statement, val.user_type, val.name, val.created_at);
+       add_statement(val.statement, val.user_type, val.name, val.created_at,val.user_id);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
 

@@ -53,13 +53,15 @@ $(document).ready(function(){
 
 
 $(document).ready(function(){
-
   //一緒にやりたいことリストがクリックされたときの処理
    $(".list_want").on("click", "li.list_want_div", function() {
         console.log("クリックされたよ");
         console.log(this);
         var name =  $(this).attr("name");//クリックされたnameを変数nameに入れる
         console.log(name);//クリックされたnameをコンソールに出力
+
+
+
 
    });
   //やらなければならないことことリストがクリックされたときの処理
