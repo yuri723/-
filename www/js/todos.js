@@ -67,7 +67,7 @@ $(document).ready(function(){
                     click: function ()
                     {
                       //編集処理
-                      alert("編集!!");
+                      window.location.href = 'edit-todo.html';
                      }
                 },
                 {
@@ -99,25 +99,36 @@ $(document).ready(function(){
         console.log("クリックされたよ");
         // ダイアログ用のボタン（配列）
          var buttons2 = [
-             {
-                 text: "編集する",
-                 click: function ()
-                 {
-                   //編集処理
-                   alert("編集!!");
-                  }
-             },
-             {
-                 text: "削除する",
-                 click: function ()
-                 {
-                   //削除処理
-                   alert("削除!!");
-                 }
-             }
-         ];
-         // ダイアログを表示
-         showDialog("TODOリストの編集,削除", "リスト内容を編集、削除しますか？", buttons2);
+           {
+               text: "編集する",
+               click: function ()
+               {
+                 //編集処理
+                 window.location.href = 'edit-todo.html';
+                }
+           },
+           {
+               text: "削除する",
+               click:function (){
+                 //削除処理
+                 $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/must_todos/"+window.localStorage.getItem("family_id"),{
+                     type: 'DELETE',
+                     headers: {
+                       'Authorization': window.localStorage.getItem("access_token_local"),
+                       'UserType': window.localStorage.getItem("seibetu_local"),
+                     },
+                     timeout: 10000,
+                 }).done(function(data) {
+                   alert("削除しました");
+                 }).fail(function(jqXHR, statusText, errorThrown) {
+                   alert("エラー");
+                 })
+               }
+           }
+       ];
+       // ダイアログを表示
+       showDialog("TODOリストの編集,削除", "リスト内容を編集、削除しますか？", buttons2);
+
   });
 });
 

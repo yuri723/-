@@ -67,7 +67,7 @@ $(document).ready(function(){
                     click: function ()
                     {
                       //編集処理
-                      alert("編集!!");
+                      window.location.href = 'edit-todo.html';
                      }
                 },
                 {
