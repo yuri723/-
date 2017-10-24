@@ -28,3 +28,11 @@ $(document).ready(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $('#back').on('click',function(){
+    
+      window.location.href = 'home2.html';
+
+  });
+});
