@@ -21,3 +21,11 @@ $(document).ready(function(){
     });
   });
 });
+
+$(document).ready(function(){
+  $('#back').on('click',function(){
+
+      window.location.href = 'policy3.html';
+
+  });
+});

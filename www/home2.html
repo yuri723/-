@@ -12,6 +12,9 @@
 
         <link rel="stylesheet" href="css/drawer.min.css">
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/js/drawer.min.js"></script>
         <script src="js/todos.js"></script>
@@ -114,14 +117,14 @@
      </p>
      <div id="tab1" class="tab">
 
-       <div id="want_todos" class="list_want">
+       <div id="want_todos" class="list_want" style="list-style:none;">
        </div>
        <a class="plusbtn" href="add-todo.html" style="position: fixed; bottom: 20px; right: 20px;">+</a>
     </div>
 
      <div id="tab2" class="tab">
 
-        <div id="must_todos" class="list_must">
+        <div id="must_todos" class="list_must" style="list-style:none;">
 
         </div>
         <a class="plusbtn" href="add-todo2.html" style="position: fixed; bottom: 20px; right: 20px;">+</a>
@@ -135,8 +138,11 @@
   <!-- ページを開いた際の最初に表示されるタブの選択 -->
   <script type="text/javascript">
      ChangeTab('tab1');
+
   </script>
 		  <!-- コンテンツ -->
 	</main>
+
+
 </body>
 </html>
