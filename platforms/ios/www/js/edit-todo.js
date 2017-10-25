@@ -3,13 +3,12 @@ function getUrlVars()
     var vars = [], max = 0, hash = "", array = "";
     var url = window.location.search;
 
-        //?を取り除くため、1から始める。複数のクエリ文字列に対応するため、&で区切る
     hash  = url.slice(1).split('&');
     max = hash.length;
     for (var i = 0; i < max; i++) {
-        array = hash[i].split('=');    //keyと値に分割。
-        vars.push(array[0]);    //末尾にクエリ文字列のkeyを挿入。
-        vars[array[0]] = array[1];    //先ほど確保したkeyに、値を代入。
+        array = hash[i].split('=');
+        vars.push(array[0]);
+        vars[array[0]] = array[1];
     }
 
     return vars;
@@ -18,6 +17,7 @@ function getUrlVars()
 // 個別情報取得
 $(document).ready(function(){
   queryString = getUrlVars();
+  $("#type").empty().append(queryString.type == "want_todos" ? "一緒にやりたいこと" : "やらないといけないこと")
   $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/"+queryString.type+"/"+queryString.id,{
       type: 'GET',
       headers: {

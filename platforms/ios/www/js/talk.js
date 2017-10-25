@@ -467,6 +467,9 @@ var toDoubleDigits = function(num) {
 };
 
 function updateTalk(){
+
+  setTimeout("updateTalk()", 2000);
+
   var now = new Date();
   var month = toDoubleDigits(now.getMonth()+1);
   var day   = toDoubleDigits(now.getDate());
@@ -477,7 +480,6 @@ function updateTalk(){
 
   // TODO 秒が-になる雑な計算どうにか
   if(old_seconds < 0){
-    setTimeout("updateTalk()", 2000);
     return;
   }
 
@@ -500,7 +502,6 @@ function updateTalk(){
   }).fail(function(jqXHR, statusText, errorThrown) {
 
   });
-  setTimeout("updateTalk()", 2000);
 }
 
 var stamptype = true ;//スタンプフォームが表示されているとき→false
@@ -509,36 +510,9 @@ var messagetype = true ;//メッセージフォームが表示されていると
 $(document).ready(function(){
   setTimeout("updateTalk()", 2000);
   $(window).scrollTop($("#under").offset().top);
-  $(".hid").hide();//スタンプフォームを隠す
-  $(".message").hide();//メッセージフォームを隠す
-
 });
 
-
-  $(document).on('click','#stamp',function(){
-    $(".message").hide();//メッセージフォームを隠す
-    messagetype = true;
-  if(stamptype == true){
-    $(".hid").show();//スタンプフォームを表示する
-    stamptype = false;
-  }else {
-    $(".hid").hide();//スタンプフォームを隠す
-    stamptype = true;
-  }
-
-  messagetype = true;
-
-});
-
-$(document).on('click','#message',function(){
-$(".hid").hide();//スタンプフォームを隠す
-stamptype = true;
-if(messagetype == true){
-  $(".message").show();//メッセージフォームを表示する
-  messagetype = false;
-}else {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-}
-
+$(document).ready(function(){
+  $(".button-collapse").sideNav();
+  $('.modal').modal();
 });

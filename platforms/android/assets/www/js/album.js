@@ -36,7 +36,7 @@ function cameraSuccess(image){
 }
 // 失敗した時
 function cameraError(message){
-    alert("Failed!!: " + message);
+    alert("エラー: " + message);
 }
 
 $(document).ready(function(){
@@ -49,12 +49,24 @@ $(document).ready(function(){
       timeout: 10000,
   }).done(function(data) {
     data.forEach(function(val,index,ar){
-      console.log(val);
-      $("#content").append("<div>追加者:"+val.wife+"<br>追加日:"+val.created_at+"<br><img src='http://54.65.55.210"+val.image.url+"'>");
-      $("#content").append("</div>");
-      $("#content").append("<hr>");
+
+      $("#content").append(`\
+        <div class="col s12 m6 l3">\
+          <div class="card">\
+            <div class="card-image">\
+            <img src="${val.image.url}">\
+          </div>\
+          <div class="card-content">\
+            【追加日】${val.created_at}\
+          <div>\
+        </div>`);
+
     });
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("エラー");
   });
+});
+
+$(document).ready(function(){
+  $(".button-collapse").sideNav();
 });

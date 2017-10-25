@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
   $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/must_todos",{
       type: 'GET',
       headers: {
@@ -8,24 +9,12 @@ $(document).ready(function(){
       timeout: 10000,
   }).done(function(data) {
     data.forEach(function(val,index,ar){
-      var time_unix = val.deadline ;
-      var time_year = time_unix.substr(0,4);
-      var time_month = time_unix.substr(5,2);
-      var time_date = time_unix.substr(8,2);
-      var time_ymd = time_year+"/"+time_month + "/"+time_date ;
-
-      $("#must_todos").append("<li class='list_must_div' name='todomust"+val.id+"'>【締め切り】"+time_ymd+"<br>【内容】"+val.statement+"<br>【作成者】"+val.name+"</li>")
-      $("#must_todos").append("<hr>")
-
-
-     });
+      addTodo(val, "must_todos");
+    });
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("エラー");
   });
-});
 
-
-$(document).ready(function(){
   $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/want_todos",{
       type: 'GET',
       headers: {
@@ -35,15 +24,7 @@ $(document).ready(function(){
       timeout: 10000,
   }).done(function(data) {
     data.forEach(function(val,index,ar){
-      var time_unix = val.deadline ;
-      var time_year = time_unix.substr(0,4);
-      var time_month = time_unix.substr(5,2);
-      var time_date = time_unix.substr(8,2);
-      var time_ymd = time_year+"/"+time_month + "/"+time_date ;
-
-      $("#want_todos").append("<li class='list_want_div' name='todowant"+val.id+"'>【締め切り】"+time_ymd+"<br>【内容】"+val.statement+"<br>【作成者】"+val.name+"</li>")
-      $("#want_todos").append("<hr>")
-
+      addTodo(val, "want_todos");
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("エラー");
@@ -51,93 +32,47 @@ $(document).ready(function(){
 
 });
 
+function addTodo(val, type) {
+  var time_unix = val.deadline ;
+  var time_year = time_unix.substr(0,4);
+  var time_month = time_unix.substr(5,2);
+  var time_date = time_unix.substr(8,2);
+  var time_ymd = time_year+"/"+time_month + "/"+time_date ;
+
+  $("#"+type+"_columns").append(`\
+    <div class="card col s12 m6 l3">\
+      <div class="card-content">\
+        <span class="card-title">${val.statement}</span>\
+        <p>\
+          【締め切り】${time_ymd}<br />\
+          【作成者】${val.name}<br />\
+        </p>\
+      </div>\
+      <div class="card-action">\
+        <a href="edit-todo.html?id=${val.id}&type=${type}">編集</a>\
+        <a href="#" onClick="deleteTodo(${val.id}, '${type}')">削除</a>\
+      <div>\
+    </div>`);
+}
+
+function deleteTodo(id, type) {
+  var res = confirm("削除してもよろしいですか？");
+  if( res == true ) {
+    $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/"+type+"/"+id,{
+        type: 'DELETE',
+        headers: {
+          'Authorization': window.localStorage.getItem("access_token_local"),
+          'UserType': window.localStorage.getItem("seibetu_local"),
+        },
+        timeout: 10000,
+    }).done(function(data) {
+      location.href = "home2.html"
+    }).fail(function(jqXHR, statusText, errorThrown) {
+      alert("エラー");
+    });
+  };
+}
 
 $(document).ready(function(){
-  //一緒にやりたいことリストがクリックされたときの処理
-   $(".list_want").on("click", "li.list_want_div", function() {
-        var name =  $(this).attr("name").slice(8);//クリックされたnameを変数nameに入れる
-           // ダイアログ用のボタン（配列）
-            var buttons = [
-                {
-                    text: "編集する",
-                    click: function ()
-                    {
-                      //編集処理
-                      window.location.href = 'edit-todo.html?id='+name+"&type=want_todos";
-                     }
-                },
-                {
-                    text: "削除する",
-                    click:function (){
-                      //削除処理
-                      $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/want_todos/"+window.localStorage.getItem("family_id"),{
-                          type: 'DELETE',
-                          headers: {
-                            'Authorization': window.localStorage.getItem("access_token_local"),
-                            'UserType': window.localStorage.getItem("seibetu_local"),
-                          },
-                          timeout: 10000,
-                      }).done(function(data) {
-                        alert("削除しました");
-                      }).fail(function(jqXHR, statusText, errorThrown) {
-                        alert("エラー");
-                      })
-                    }
-                }
-            ];
-            // ダイアログを表示
-            showDialog("TODOリストの編集,削除", "リスト内容を編集、削除しますか？", buttons);
-
-
-   });
-  //やらなければならないことことリストがクリックされたときの処理
-  $(".list_must").on("click", "li.list_must_div", function() {
-        var name =  $(this).attr("name").slice(8);//クリックされたnameを変数nameに入れる
-
-        // ダイアログ用のボタン（配列）
-         var buttons2 = [
-           {
-               text: "編集する",
-               click: function ()
-               {
-                 //編集処理
-                 window.location.href = 'edit-todo.html?id='+name+"&type=must_todos";
-                }
-           },
-           {
-               text: "削除する",
-               click:function (){
-                 //削除処理
-                 $.ajax("http://54.65.55.210/v1/families/"+window.localStorage.getItem("family_id")+"/must_todos/"+window.localStorage.getItem("family_id"),{
-                     type: 'DELETE',
-                     headers: {
-                       'Authorization': window.localStorage.getItem("access_token_local"),
-                       'UserType': window.localStorage.getItem("seibetu_local"),
-                     },
-                     timeout: 10000,
-                 }).done(function(data) {
-                   alert("削除しました");
-                 }).fail(function(jqXHR, statusText, errorThrown) {
-                   alert("エラー");
-                 })
-               }
-           }
-       ];
-       // ダイアログを表示
-       showDialog("TODOリストの編集,削除", "リスト内容を編集、削除しますか？", buttons2);
-
-  });
+  $(".button-collapse").sideNav();
 });
-
-//------------------------------
-// ダイアログ表示
-//------------------------------
-function showDialog(title, message, buttons)
-{
-    var html_dialog = '<div>' + message + '</div>';
-    $(html_dialog).dialog({
-        title:   title,
-        buttons: buttons,
-        close:   function() { $(this).remove(); }
-    });
-}

@@ -7,78 +7,39 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"> <!--拡大縮小を不可にする -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
 
-        <link rel="stylesheet" href="css/drawer.min.css">
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/js/drawer.min.js"></script>
         <script src="js/talk.js"></script>
-        <script>
-          $(document).ready(function() {
-	          $('.drawer').drawer();
-          });
-
-
-       </script>
-
-       <style>
-         .sr-only{ color: red; }
-         h5{
-         background-color: #179A46;
-         color: #fff;
-         padding: 8px}
-
-         {
-	        margin: 0;
-	        padding: 0;
-         }
-
-         #grid {
-	       width: 450px;
-         }
-         li {
-	       margin: 5px;
-	       float: left;
-	       list-style: none;
-         }
-
-         #grid2 {
-	       width: 600px;
-         }
-         li {
-	       margin: 5px;
-	       float: left;
-	       list-style: none;
-         }
-
-       </style>
 
     </head>
 
-    <body class="drawer drawer--left">
-	     <header role="banner">
-		       <button type="button" class="drawer-toggle drawer-hamburger">
-			          <span class="sr-only">toggle navigation</span>
-			          <span class="drawer-hamburger-icon"></span>
-		       </button>
-           <nav class="drawer-nav" role="navigation">
-    			 <ul class="drawer-menu">
-    				<li><a class="drawer-brand" href="home.html">トークルーム</a></li>
-            <li><a class="drawer-brand" href="home2.html">TO DO　　　</a></li>
-            <li><a class="drawer-brand" href="home3.html">アルバム　　　　　</a></li>
-            <li><a class="drawer-brand" href="setting.html">設定</a></li>
-    			 </ul>
-    		   </nav>
-	     </header>
+    <body>
 
-	    <main role="main">
-        <h5 align="center" style="position: fixed;top:0; width:100%; height: 50px;">
-        	トークルーム
-    	  </h5>
-	    </main>
-
+      <div class="navbar-fixed">
+        <nav class="green darken-2">
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">トーク</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li class="active"><a href="home.html"><i class="material-icons left">person</i>トークルーム</a></li>
+              <li><a href="home2.html"><i class="material-icons left">format_list_bulleted</i>TO DO</a></li>
+              <li><a href="home3.html"><i class="material-icons left">photo_album</i>アルバム</a></li>
+              <li><a href="setting.html"><i class="material-icons left">settings</i>設定</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul class="side-nav" id="mobile-demo">
+        <li class="active"><a href="home.html"><i class="material-icons">person</i>トークルーム</a></li>
+        <li><a href="home2.html"><i class="material-icons">format_list_bulleted</i>TO DO</a></li>
+        <li><a href="home3.html"><i class="material-icons">photo_album</i>アルバム</a></li>
+        <li><a href="setting.html"><i class="material-icons">settings</i>設定</a></li>
+      </ul>
       <div id="talk" style="margin: 70px 0px 0px 0px; width: 100%; hight: 100%; overflow: visible;">
 
       </div>
@@ -96,40 +57,56 @@
       <br>
 
 
-      <div id="grid" class="stamp hid"  style="font-size: 1.2em; color: #fff; background-color:#179A46; position:fixed; top: 82%; left: 50%; transform: translate(-50%, -50%);width:100%;">
-　　　スタンプ
-      <ul>
-      <li><button type="button" id="stamp1" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_angry.png" width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp2" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_ase.png" width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp3" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_cry.png" width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp4" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_hehe.png"width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp5" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_jito.png" width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp6" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_laugh.png" width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp7" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_odoroki.png" width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp8" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_smile.png"width="40" height="40" /></button></li>
-      <li><button type="button" id="stamp9" style="background-color:#fff;border: 2px #179A46 solid; width="0";position: fixed;  bottom: 0;"><img src="img/mark_face_tere.png"width="40" height="40" /></button></li>
-      </ul>
-      </div>
-
-      <div id="girid2" class="message" style="font-size: 1.2em; color:#fff;background-color:#179A46;position:fixed; top: 82%; left: 50%; transform: translate(-50%, -50%);width:100%;">
-      　　メッセージ
+      <div class="fixed-action-btn vertical">
+        <a class="btn-floating btn-large green darken-4">
+          <i class="large material-icons">mode_edit</i>
+        </a>
         <ul>
-          <li><button type="button" id="message1" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">ありがとう</button></li>
-          <li><button type="button" id="message2" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">いいね</button></li>
-          <li><button type="button" id="message3" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">了解</button></li>
-          <li><button type="button" id="message4" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">帰ったら話そう</button></li>
-          <li><button type="button" id="message5" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">お疲れ様</button></li>
-          <li><button type="button" id="message6" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">どういたしまして</button></li>
-          <li><button type="button" id="message7" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">楽しそう</button></li>
-
-
-
+          <li><a class="btn-floating waves-effect waves-light modal-trigger green darken-2" href="#message-modal"><i class="material-icons">message</i></a></li>
+          <li><a class="btn-floating waves-effect waves-light modal-trigger green darken-2" href="#stamp-modal"><i class="material-icons">child_care</i></a></li>
         </ul>
       </div>
 
-      <input type="button" id="stamp"  value="スタンプ" style="font-size: 1.4em; color: #fff;background-color:#179A46;border: 2px #179A46 solid;left: 2%; width:47%; position: fixed;  bottom: 0;">
-      <input type="button" id="message"  value="メッセージ" style="font-size: 1.4em; color: #fff;background-color:#179A46;border: 2px #179A46 solid; left: 51%;width:47%; position: fixed;  bottom: 0;">
-      <!--input type="text" id="send" placeholder="メッセージ" onkeypress="send(event.keyCode);" style="background-color:#179A46;border: 2px #179A46 solid; width:100%; position: fixed;  bottom: 0;"-->
+      <div id="stamp-modal" class="modal">
+        <div class="modal-content">
+          <h4>スタンプ</h4>
+          <p>
+            <ul>
+              <li><button type="button" id="stamp1" class="modal-close"> <img src="img/mark_face_angry.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp2" class="modal-close"> <img src="img/mark_face_ase.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp3" class="modal-close"> <img src="img/mark_face_cry.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp4" class="modal-close"> <img src="img/mark_face_hehe.png"width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp5" class="modal-close"> <img src="img/mark_face_jito.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp6" class="modal-close"> <img src="img/mark_face_laugh.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp7" class="modal-close"> <img src="img/mark_face_odoroki.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp8" class="modal-close"> <img src="img/mark_face_smile.png"width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp9" class="modal-close"> <img src="img/mark_face_tere.png"width="40" height="40" /></button></li>
+            </ul>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">キャンセル</a>
+        </div>
+      </div>　　　
 
-</body>
+      <div id="message-modal" class="modal">
+        <div class="modal-content">
+          <h4>メッセージ</h4>
+          <p>
+            <ul>
+              <li><button type="button" class="modal-close" id="message1" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">ありがとう</button></li>
+              <li><button type="button" class="modal-close" id="message2" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">いいね</button></li>
+              <li><button type="button" class="modal-close" id="message3" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">了解</button></li>
+              <li><button type="button" class="modal-close" id="message4" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">帰ったら話そう</button></li>
+              <li><button type="button" class="modal-close" id="message5" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">お疲れ様</button></li>
+              <li><button type="button" class="modal-close" id="message6" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">どういたしまして</button></li>
+              <li><button type="button" class="modal-close" id="message7" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">楽しそう</button></li>
+            </ul>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">キャンセル</a>
+        </div>
+      </div>
+    </body>
 </html>
