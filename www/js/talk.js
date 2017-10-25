@@ -493,6 +493,7 @@ function updateTalk(){
   }).done(function(data) {
     console.log(data);
     data.forEach(function(val,index,ar){
+      console.log(val.user_id)
        add_statement(val.statement, val.user_type, val.name, val.created_at);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
