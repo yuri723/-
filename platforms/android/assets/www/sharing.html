@@ -2,73 +2,48 @@
 
 <html lang=ja>
     <head>
-
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
         <script src="js/sharing.js"></script>
-        <script>
-    </script>
-    <style>
-        h5{
-        background-color: #179A46;
-        color: #fff;
-        padding: 8px}
-
-        hr{color:#179A46}
-
-        h6{font-weight: bold;}
-
-        div{text-align:center;
-        font-size: 1.4em;
-        border-style: none;
-
-
-        }
-        input[type=submit]{
-        border-radius:10px;
-        width:250px;
-        height:30px;
-        color:#fff;
-        font-weight:bold;
-        background:gray;
-        box-shadow:black 2px 2px;
-}
-
-        label{font-weight: bold;
-        }
-
-
-    </style>
 </head>
-<body style="margin-right:8px;margin-left:8px;">
-    <h5 align="center">
-        子育て像の共有
-    </h5>
+<body>
 
-    <p style="font-weight: bold">
-     パートナーと子育て像の共有をしましょう。
-     <hr>
-    </p>
-
-    <p>
-     <img src="img/sharing.png" style="width:100%;height:auto;max-width:200px;">
-     <br>
-     <h6 id="share">相手の回答がまだ登録されていません</h6>
-
-    </p>
-
-
-
-    <div>
-    <input type="submit"  value="パートナーの答えを見る" onclick="location.href='sharing2.html'"/>
+  <nav class="green darken-2">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">子育て像の共有</a>
     </div>
+  </nav>
+
+  <p style="font-weight: bold">
+    パートナーと子育て像の共有をしましょう。
+  </p>
+  <div class="divider">
+  </div>
+
+  <p>
+    <img src="img/sharing.png" style="width:100%;height:auto;max-width:200px;">
     <br>
-    <div>
-    <input type="submit"  value="共有終了" onclick="location.href='home.html'"/>
-    </div>
-    <br>
+    <h6 id="share">相手の回答がまだ登録されていません</h6>
+  </p>
+
+  <div id="show_answer" align="center" style="display:none;">
+    <a id="btn_show" class="btn waves-effect waves-light teal center">
+      相手の回答を見る
+    </a>
+  </div>
+  <br />
+  
+  <div id="partner_answer" style="display:none;">
+  </div>
+
+  <a id="send" class="btn waves-effect waves-light green darken-2 right" style="margin: 30px 0px 50px 0px;" onclick="location.href='home.html'">
+    <i class="material-icons">send</i>終了
+  </a>
+
 </body>
 </html>

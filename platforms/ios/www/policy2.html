@@ -6,65 +6,37 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
-        <script src="js/policy2.js"></script>
-        <script>
-    </script>
-    <style>
-        h5{
-        background-color: #179A46;
-        color: #fff;
-        padding: 8px}
-
-        hr{color:#179A46}
-
-        h6{font-weight: bold;}
-
-        div{text-align:center;
-        font-size: 1.4em;
-        border-style: none;
-
-
-        }
-        input[type=submit]{
-        border-radius:10px;
-        width:200px;
-        height:30px;
-        color:#fff;
-        font-weight:bold;
-        background:gray;
-        box-shadow:black 2px 2px;
-}
-
-        label{font-weight: bold;
-        }
-
-
-    </style>
+        <script src="js/materialize.min.js"></script>
+        <script src="js/policy.js"></script>
 </head>
-<body style="margin-right:8px;margin-left:8px;">
-    <h5 align="center">
-        子育て像の質問(2/4)
-    </h5>
+<body>
+  <nav class="green darken-2">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">子育て像の質問(2/4)</a>
+    </div>
+  </nav>
 
-   <p style="font-weight: bold">
+  <p>
     あなた自身はどのように子育てをしたいと思っていますか？
     <br>
     当てはまるものにチェックを入れてください。
-     <hr>
-    </p>
+  </p>
+  <div class="divider">
+  </div>
 
-    <p>
-    <h6>質問2</h6>
+  <p>
+    <h6 id="question_id">質問2</h6>
     <br>
      <img src="img/policy2.png" style="width:100%;height:auto;max-width:320px;" alt="ごはんを食べさせてもらう子供、食べ散らかしながらごはんを自分で食べる子供">
      <br>
      <h6>食べ散らかしたとしても、食事はできるだけ自分で食べさせる？食べさせてあげる？</h6>
-    </p>
+  </p>
 
-    <p>
+  <p>
      <h6>答え</h6>
      <input class="with-gap" name="answer" type="radio" id="answer1" value="自分で食べさせる" />
      <label for="answer1">自分で食べさせる</label>
@@ -77,15 +49,11 @@
      <br>
      <input class="with-gap" name="answer" type="radio" id="answer4" value="食べさせてあげる" />
      <label for="answer4">食べさせてあげる</label>
-    </p>
+  </p>
 
-    <div>
-    <input type="submit"  id="send" value="次の質問へ"/>
-    </div>
-    <br>
-    <div>
-    <input type="submit"  id="back" value="戻る"/>
-    </div>
-    <br>
+  <a id="send" class="btn waves-effect waves-light green darken-2 right" style="margin: 0px 10px 50px 0px;">
+    <i class="material-icons">send</i>決定
+  </a>
+
 </body>
 </html>

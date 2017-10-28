@@ -2,86 +2,56 @@
 
 <html lang=ja>
     <head>
-
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
         <script src="js/policy.js"></script>
-        <script>
-        </script>
-        <style>
-            h5{
-            background-color: #179A46;
-            color: #fff;
-            padding: 8px}
-
-            hr{color:#179A46}
-
-            h6{font-weight: bold;}
-
-            div{text-align:center;
-            font-size: 1.4em;
-            border-style: none;
-
-
-            }
-            input[type=submit]{
-            border-radius:10px;
-            width:200px;
-            height:30px;
-            color:#fff;
-            font-weight:bold;
-            background:gray;
-            box-shadow:black 2px 2px;
-    }
-
-            label{font-weight: bold;
-            }
-
-        </style>
     </head>
-    <body style="margin-right:8px;margin-left:8px;">
-        <h5 align="center">
-            子育て像の質問(1/4)
-        </h5>
+    <body>
+      <nav class="green darken-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">子育て像の質問(1/4)</a>
+        </div>
+      </nav>
 
-        <p style="font-weight: bold">
-        あなた自身はどのように子育てをしたいと思っていますか？
-        <br>
-        当てはまるものにチェックを入れてください。
-         <hr>
-        </p>
-
-        <p>
-        <h6>質問1</h6>
+      <p style="font-weight: bold">
+      あなた自身はどのように子育てをしたいと思っていますか？
+      <br>
+      当てはまるものにチェックを入れてください。
+      </p>
+      <div class="divider">
+      </div>
+      <p>
+        <h6 id="question_id">質問1</h6>
         <br>
          <img src="img/policy.png" style="width:100%;height:auto;max-width:320px;" alt="スポーツ・音楽をする子供">
          <br>
          <h6>将来、スポーツと音楽どちらに長けてほしいか。</h6>
-        </p>
+      </p>
 
-        <p>
-         <h6>答え</h6>
-         <input class="with-gap" name="answer" type="radio" id="answer1"  value="スポーツ"/>
-         <label for="answer1">スポーツ</label>
-         <br>
-         <input class="with-gap" name="answer" type="radio" id="answer2"  value="どちらかといえばスポーツ"/>
-         <label for="answer2">どちらかといえばスポーツ</label>
-         <br>
-         <input class="with-gap" name="answer" type="radio" id="answer3"  value="どちらかといえば音楽"/>
-         <label for="answer3">どちらかといえば音楽</label>
-         <br>
-         <input class="with-gap" name="answer" type="radio" id="answer4"  value="音楽"/>
-         <label for="answer4">音楽</label>
-        </p>
-
-        <div>
-        <input type="submit" id="send" value="次の質問へ"/>
-        </div>
-
+      <p>
+        <h6>答え</h6>
+        <input class="with-gap" name="answer" type="radio" id="answer1"  value="スポーツ"/>
+        <label for="answer1">スポーツ</label>
         <br>
-    </body>
-    </html>
+        <input class="with-gap" name="answer" type="radio" id="answer2"  value="どちらかといえばスポーツ"/>
+        <label for="answer2">どちらかといえばスポーツ</label>
+        <br>
+        <input class="with-gap" name="answer" type="radio" id="answer3"  value="どちらかといえば音楽"/>
+        <label for="answer3">どちらかといえば音楽</label>
+        <br>
+        <input class="with-gap" name="answer" type="radio" id="answer4"  value="音楽"/>
+        <label for="answer4">音楽</label>
+      </p>
+
+      <a id="send" class="btn waves-effect waves-light green darken-2 right" style="margin: 0px 10px 50px 0px;">
+        <i class="material-icons">send</i>決定
+      </a>
+
+  </body>
+</html>

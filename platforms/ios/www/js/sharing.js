@@ -1,9 +1,25 @@
+var your_answer = [];
+
+$.ajax("http://54.65.55.210//v1/question_answers/my_answers",{
+    type: 'GET',
+    async: false,
+    headers: {
+      'Authorization': window.localStorage.getItem("access_token_local"),
+      'UserType': window.localStorage.getItem("seibetu_local"),
+    },
+    timeout: 10000,
+}).done(function(data) {
+  data.forEach(function(val,index,ar){
+    your_answer.push(val.answer);
+  });
+}).fail(function(jqXHR, statusText, errorThrown) {
+});
+
 
 $(document).ready(function(){
 
   var updateGap = function(){
     var partner_answer = [];
-    var your_answer = [];
 
     $.ajax("http://54.65.55.210//v1/question_answers/",{
         type: 'GET',
@@ -16,21 +32,7 @@ $(document).ready(function(){
     }).done(function(data) {
       data.forEach(function(val,index,ar){
         partner_answer.push(val.answer);
-      });
-    }).fail(function(jqXHR, statusText, errorThrown) {
-    });
-
-    $.ajax("http://54.65.55.210//v1/question_answers/my_answers",{
-        type: 'GET',
-        async: false,
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        timeout: 10000,
-    }).done(function(data) {
-      data.forEach(function(val,index,ar){
-        your_answer.push(val.answer);
+        $("#partner_answer").append("質問"+(index+1)+":"+val.answer+"<br />")
       });
     }).fail(function(jqXHR, statusText, errorThrown) {
     });
@@ -43,26 +45,18 @@ $(document).ready(function(){
           matched++;
         }
       }
-
       percent = 100 - (matched / question_num * 100)
       $("#share").text("相手との違いは"+percent+"%です。");
+      $("#show_answer").show();
+    }else{
+      setInterval(updateGap, 3000);
     }
   }
-  setInterval(updateGap, 3000);
-
+  updateGap();
 });
 
-function diffArray(arr1, arr2) {
-  var newArr = [];
-  for(var a = 0 ; a < arr1.length; a++){
-    if(arr2.indexOf(arr1[a]) === -1 ){
-      newArr.push(arr1[a]);
-    }
-  }
-  for(var b = 0; b < arr2.length; b++){
-    if(arr1.indexOf(arr2[b]) === -1 ){
-       newArr.push(arr2[b]);
-       }
-  }
-  return newArr;
-}
+$(document).ready(function(){
+  $('#btn_show').on('click',function(){
+    $("#partner_answer").show()
+  });
+});

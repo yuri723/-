@@ -44,6 +44,8 @@ $(document).on('click','#decide',function(){
     window.localStorage.setItem("date_local",date);
 
     window.location.href = 'partner.html';
+  }).fail(function(jqXHR, statusText, errorThrown) {
+    alert("エラー");
   });
 });
 

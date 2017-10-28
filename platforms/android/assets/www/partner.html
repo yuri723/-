@@ -5,81 +5,47 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
         <script src="js/partner.js"></script>
         <script src="js/jQuery-Validation-Engine-master/js/jquery.validationEngine.js"></script>
         <script src="js/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-ja.js"></script>
         <link href="js/jQuery-Validation-Engine-master/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
 
-        <script>
-          $(function(){
-          jQuery("#partner_id_form").validationEngine();
-          });
-        </script>
-
-        <style>
-            h5{
-            background-color: #179A46;
-            color: #fff;
-            padding: 8px}
-
-            hr{color:#179A46}
-
-            h6{font-weight: bold;}
-
-            dt{font-weight: bold;}
-
-            div{text-align:center;
-            font-size: 1.4em;
-            border-style: none;
-
-
-            }
-            input[type=button]{
-            border-radius:10px;
-            width:200px;
-            height:30px;
-            color:#fff;
-            font-weight:bold;
-            background:gray;
-            box-shadow:black 2px 2px;
-    }
-
-            label{font-weight: bold;
-            }
-
-        </style>
-
     </head>
-    <body style="margin-right:8px;margin-left:8px;">
-        <h5 align="center">
-            夫婦のパートナー設定
-    	  </h5>
+    <body>
 
-        <form id="partner_id_form">
-        <p style="font-weight: bold">
+      <nav class="green darken-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">夫婦のパートナー設定</a>
+        </div>
+      </nav>
+
+      <p>
         夫婦間のアカウントを連携させます。
         <br>
         必要な情報を入力してください。
-         <hr>
-        </p>
+      </p>
+      <div class="divider">
+      </div>
 
-        <p>
-        <dl>
-          <dt>相手のメールアドレス</dt>
-          <dd>
-          <input type="email" id="pare-email" placeholder="相手のメールアドレス" style="border:solid 2px gray" class="validate[required,custom[email]]"/>
-          </dd>
-        </dl>
-        </p>
-
-
-        <div>
-        <input type="button" value="確認する" id="partner_button"/>
+      <div class="row">
+        <div style="margin: 20px 0px 0px 0px;">
+          <div class="col s3">
+            <div style="margin: 30px 0px 0px 0px;">相手のメールアドレス</div>
+          </div>
+          <div class="input-field col s9">
+            <input id="pare-email" type="email" class="validate">
+          </div>
         </div>
+      </div>
 
-      </form>
+      <a id="partner_button" class="btn waves-effect waves-light green darken-2 right" style="margin: 0px 0px 50px 0px;">
+        <i class="material-icons">send</i>決定
+      </a>
+
     </body>
     </html>

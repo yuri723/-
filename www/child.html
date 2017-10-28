@@ -5,117 +5,72 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
         <script src="js/child.js"></script>
         <script src="js/jQuery-Validation-Engine-master/js/jquery.validationEngine.js"></script>
         <script src="js/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-ja.js"></script>
         <link href="js/jQuery-Validation-Engine-master/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
 
-        <script>
-
-        </script>
-
-        <style>
-            h5{
-            background-color: #179A46;
-            color: #fff;
-            padding: 8px}
-
-            hr{color:#179A46}
-
-            h6{font-weight: bold;}
-
-            dt{font-weight: bold;}
-
-            div{text-align:center;
-            font-size: 1.4em;
-            border-style: none;
-
-
-            }
-            input[type=button]{
-            border-radius:10px;
-            width:200px;
-            height:30px;
-            color:#fff;
-            font-weight:bold;
-            background:gray;
-            box-shadow:black 2px 2px;
-    }
-
-            label{font-weight: bold;
-            }
-
-        </style>
-
     </head>
-    <body style="margin-right:8px;margin-left:8px;">
-        <h5 align="center">
-            子供の登録
-    	  </h5>
+    <body>
 
-
-        <p style="font-weight: bold">
-        お子さんの情報を登録してください。
-
-         <hr>
-        </p>
-
-　　　　<form id="child_form" name="form">
-
-        <p>
-        <dl>
-        <dt class="fm_th">お子さんの名前</dt>
-        <dd class="account_check" id="id_name_check">
-            お子さんの名前を入力してください。
-         </dd>
-         <dd>
-         <input type="text" id="childname" placeholder="お子さんの名前" style="border:solid 2px gray" class="def fm validate[required]">
-         </dd>
-        </dl>
-        </p>
-
-        <p>
-        <dl>
-        <dt class="fm_th">お子さんの生年月日</dt>
-        <dd class="date_check" id="id_date_check">
-          お子さんの生年月日を入力してください。
-        </dd>
-        <dd>
-        <input type="date" id="childdate" placeholder="お子さんの生年月日" style="border:solid 2px gray"　value='1988-01-01' class="def fm validate[required,custom[date]]"/>
-        </dd>
-        </dl>
-        </p>
-
-        <p>
-        <dl>
-        <dt class="fm_th">お子さんの性別</dt>
-        <dd class="seibetu_check" id="id_seibetu_check">
-          お子さんの性別を選択してください。
-        </dd>
-        <dd>
-          <input type="radio" name="seibetu" type="radio" id="man" checked class="def fm"/>
-          <label for="man" class="def">男性</label>
-        　　<!-- 全角スペース -->
-          <input type="radio" name="seibetu" type="radio" id="woman" class="def fm"  />
-          <label for="woman" class="def">女性</label>
-        </dd>
-        </dl>
-        </p>
-
-
-        <div class="fm_button">
-          <input type="button" value="送信内容の確認"  id="check" class="def" >
-          <input type="button" id="back" value="&lt;&lt; 訂正" class="hid">
-          <input type="button" id="send" value="送信 &gt;&gt;" class="hid" >
+      <nav class="green darken-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">子どもの登録</a>
         </div>
-        <div>
-          <br>
-          <input type="button" value="スキップする"  id="skip" class="def" >
-       </div>
-      </form>
-      <br>
+      </nav>
+
+      <p>
+      お子さんの情報を登録してください。
+      </p>
+      <div class="divider">
+      </div>
+
+      <div class="row">
+        <div style="margin: 20px 0px 0px 0px;">
+          <div class="col s3">
+            <div style="margin: 30px 0px 0px 0px;">お子さんの名前</div>
+          </div>
+          <div class="input-field col s9">
+            <input id="childname" type="text" class="validate">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="margin: 20px 0px 0px 0px;">
+          <div class="col s3">
+            <div style="margin: 30px 0px 0px 0px;">お子さんの生年月日</div>
+          </div>
+          <div class="input-field col s9">
+            <input id="childdate" type="date" class="validate">
+          </div>
+        </div>
+      </div>
+
+      <a id="partner_button" class="btn waves-effect waves-light green darken-2 right" style="margin: 0px 10px 50px 0px;">
+        <i class="material-icons">send</i>決定
+      </a>
+
+      <a id="skip" class="btn waves-effect waves-light green darken-2 left" style="margin: 0px 0px 50px 10px;">
+        スキップ
+      </a>
+
+      <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+          <h4>以上の内容で登録します。</h4>
+          <p id="confirm">
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">キャンセル</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat" id="decide">決定</a>
+        </div>
+      </div>
+
     </body>
   </html>

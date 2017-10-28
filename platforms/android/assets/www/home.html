@@ -72,15 +72,15 @@
           <h4>スタンプ</h4>
           <p>
             <ul>
-              <li><button type="button" id="stamp1" class="modal-close"> <img src="img/mark_face_angry.png" width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp2" class="modal-close"> <img src="img/mark_face_ase.png" width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp3" class="modal-close"> <img src="img/mark_face_cry.png" width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp4" class="modal-close"> <img src="img/mark_face_hehe.png"width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp5" class="modal-close"> <img src="img/mark_face_jito.png" width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp6" class="modal-close"> <img src="img/mark_face_laugh.png" width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp7" class="modal-close"> <img src="img/mark_face_odoroki.png" width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp8" class="modal-close"> <img src="img/mark_face_smile.png"width="40" height="40" /></button></li>
-              <li><button type="button" id="stamp9" class="modal-close"> <img src="img/mark_face_tere.png"width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp1" class="modal-close stamp" onClick="send('mark_face_angry');"> <img src="img/mark_face_angry.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp2" class="modal-close stamp" onClick="send('mark_face_ase');"> <img src="img/mark_face_ase.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp3" class="modal-close stamp" onClick="send('mark_face_cry');"> <img src="img/mark_face_cry.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp4" class="modal-close stamp" onClick="send('mark_face_hehe');"> <img src="img/mark_face_hehe.png"width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp5" class="modal-close stamp" onClick="send('mark_face_jito');"> <img src="img/mark_face_jito.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp6" class="modal-close stamp" onClick="send('mark_face_laugh');"> <img src="img/mark_face_laugh.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp7" class="modal-close stamp" onClick="send('mark_face_odoroki');"> <img src="img/mark_face_odoroki.png" width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp8" class="modal-close stamp" onClick="send('mark_face_smile');"> <img src="img/mark_face_smile.png"width="40" height="40" /></button></li>
+              <li><button type="button" id="stamp9" class="modal-close stamp" onClick="send('mark_face_tere');"> <img src="img/mark_face_tere.png"width="40" height="40" /></button></li>
             </ul>
           </p>
         </div>
@@ -94,13 +94,13 @@
           <h4>メッセージ</h4>
           <p>
             <ul>
-              <li><button type="button" class="modal-close" id="message1" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">ありがとう</button></li>
-              <li><button type="button" class="modal-close" id="message2" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">いいね</button></li>
-              <li><button type="button" class="modal-close" id="message3" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">了解</button></li>
-              <li><button type="button" class="modal-close" id="message4" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">帰ったら話そう</button></li>
-              <li><button type="button" class="modal-close" id="message5" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">お疲れ様</button></li>
-              <li><button type="button" class="modal-close" id="message6" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">どういたしまして</button></li>
-              <li><button type="button" class="modal-close" id="message7" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;">楽しそう</button></li>
+              <li><button type="button" class="modal-close" id="message1" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;" onClick="send('ありがとう');">ありがとう</button></li>
+              <li><button type="button" class="modal-close" id="message2" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;" onClick="send('いいね');">いいね</button></li>
+              <li><button type="button" class="modal-close" id="message3" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;" onClick="send('了解');">了解</button></li>
+              <li><button type="button" class="modal-close" id="message4" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;" onClick="send('帰ったら話そう');">帰ったら話そう</button></li>
+              <li><button type="button" class="modal-close" id="message5" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;" onClick="send('お疲れ様');">お疲れ様</button></li>
+              <li><button type="button" class="modal-close" id="message6" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;" onClick="send('どういたしまして');">どういたしまして</button></li>
+              <li><button type="button" class="modal-close" id="message7" style="font-size: 1.2em;background-color:#fff;border: 2px #179A46 solid;color:#179A46;" onClick="send('楽しそう');">楽しそう</button></li>
             </ul>
           </p>
         </div>

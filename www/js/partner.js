@@ -2,7 +2,6 @@ $(function(){
   access_token=window.localStorage.getItem("access_token_local");
   $(document).on('click','#partner_button',function(){
     var email = $("#pare-email").val();
-
     if (window.localStorage.getItem("seibetu_local") == "hasband"){
       search_url = "http://54.65.55.210/v1/hasbands/search_partner?partner_email=";
       type = "hasband";
@@ -50,7 +49,7 @@ $(function(){
         }).fail(function(jqXHR, statusText, errorThrown) {
         });
       }else{
-        alert("検索結果が多すぎか0です");
+        alert("相手が正しく見つかりません。");
       };
     }).fail(function(jqXHR, statusText, errorThrown) {
     });
@@ -79,4 +78,8 @@ $(document).ready(function(){
     });
   }
   setInterval(checkPartner, 3000);
+});
+
+$(function(){
+jQuery("#partner_id_form").validationEngine();
 });

@@ -90,7 +90,7 @@ $(document).ready(function(){
       async: false,
       timeout: 10000,
   }).done(function(data) {
-    data.forEach(function(val,index,ar){
+    data.reverse().forEach(function(val,index,ar){
        add_statement(val.statement, val.user_type, val.name, val.created_at,val.user_id);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
@@ -98,361 +98,22 @@ $(document).ready(function(){
   });
 });
 
-function send(code){
-	if(13 === code){
-    var statement = $("#send").val();
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-      $("#send").val('');
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-	}
-}
+function send(statement) {
+  $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
+      type: 'POST',
+      headers: {
+        'Authorization': window.localStorage.getItem("access_token_local"),
+        'UserType': window.localStorage.getItem("seibetu_local"),
+      },
+      data: {"statement": statement},
+      dataType: 'json',
+      timeout: 10000,
+  }).done(function(data) {
 
-$(document).on("click", "#stamp1", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_angry";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp2", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_ase";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp3", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_cry";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp4", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_hehe";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp5", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_jito";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp6", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_laugh";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp7", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_odoroki";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp8", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_smile";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#stamp9", function () {
-  $(".hid").hide();//スタンプフォームを隠す
-  stamptype = true;
-    var statement = "mark_face_tere";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#message1", function () {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-    var statement = "ありがとう";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#message2", function () {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-    var statement = "いいね";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#message3", function () {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-    var statement = "了解";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#message4", function () {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-    var statement = "帰ったら話そう";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#message5", function () {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-    var statement = "お疲れ様";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#message6", function () {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-    var statement = "どういたしまして";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
-
-$(document).on("click", "#message7", function () {
-  $(".message").hide();//メッセージフォームを隠す
-  messagetype = true;
-    var statement = "楽しそう";
-    $.ajax("http://54.65.55.210//v1/families/"+window.localStorage.getItem("family_id")+"/talks",{
-        type: 'POST',
-        headers: {
-          'Authorization': window.localStorage.getItem("access_token_local"),
-          'UserType': window.localStorage.getItem("seibetu_local"),
-        },
-        data: {"statement": statement},
-        dataType: 'json',
-        timeout: 10000,
-    }).done(function(data) {
-
-    }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
-    });
-
-});
+  }).fail(function(jqXHR, statusText, errorThrown) {
+    alert("エラー");
+  });
+};
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -480,7 +141,7 @@ function updateTalk(){
 
   // TODO 秒が-になる雑な計算どうにか
   if(old_seconds < 0){
-    return;
+    var old_seconds = "00";
   }
 
   var time_old = now.getFullYear()+"-"+month+"-"+day+"T"+hours+":"+minutes+":"+old_seconds;
@@ -503,9 +164,6 @@ function updateTalk(){
 
   });
 }
-
-var stamptype = true ;//スタンプフォームが表示されているとき→false
-var messagetype = true ;//メッセージフォームが表示されているとき→false
 
 $(document).ready(function(){
   setTimeout("updateTalk()", 2000);
