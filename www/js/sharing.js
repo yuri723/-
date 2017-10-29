@@ -30,6 +30,7 @@ $(document).ready(function(){
         },
         timeout: 10000,
     }).done(function(data) {
+      $("#partner_answer").empty();
       data.forEach(function(val,index,ar){
         partner_answer.push(val.answer);
         $("#partner_answer").append("質問"+(index+1)+":"+val.answer+"<br />")
