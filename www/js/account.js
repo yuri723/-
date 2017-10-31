@@ -30,6 +30,8 @@ $(document).on('click','#decide',function(){
     async: false,
     timeout:10000
   }).done(function(data,status, jqxhr){
+    console.log(data);
+
     access_token = data.access_token;
     id = data.id;
     email = data.email;
@@ -45,7 +47,10 @@ $(document).on('click','#decide',function(){
 
     window.location.href = 'partner.html';
   }).fail(function(jqXHR, statusText, errorThrown) {
-    alert("エラー");
+    var obj = JSON.parse(jqXHR.responseText);
+    Object.keys(obj).forEach(function(key) {
+      Materialize.toast(key+":"+obj[key][0], 4000);
+    });
   });
 });
 
@@ -58,7 +63,11 @@ $(document).ready(function(){
     var date      = $('#date').val()
 
     if(password != password2){
-      alert("確認用パスワードが違います");
+      Materialize.toast("確認用パスワードが違います", 4000);
+      return;
+    }
+    if(password.length < 8){
+      Materialize.toast("パスワードは8文字以上です", 4000);
       return;
     }
 

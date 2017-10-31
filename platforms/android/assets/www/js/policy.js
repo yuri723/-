@@ -4,7 +4,7 @@ $(document).ready(function(){
     var answer      = $('input[name=answer]:checked').val();
     var question_id = Number($("#question_id").text().slice(2));
     if(answer == undefined){
-      alert("答えを選択してください。");
+      Materialize.toast("答えを選択してください", 4000);
       return;
     }
     $.ajax("http://54.65.55.210/v1/question_answers",{

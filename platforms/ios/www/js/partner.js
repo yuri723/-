@@ -44,12 +44,14 @@ $(function(){
               window.localStorage.setItem("family_id",data.id);
               window.location.href = 'child.html';
           }).fail(function(jqXHR, statusText, errorThrown) {
-            alert("家族登録に失敗しました。");
+            Materialize.toast("登録に失敗しました", 4000);
           });
         }).fail(function(jqXHR, statusText, errorThrown) {
         });
-      }else{
-        alert("相手が正しく見つかりません。");
+      }else if(data.length==0){
+        Materialize.toast("入力されたメールアドレスは登録されていません", 4000);
+      }else if(data.length > 1){
+        Materialize.toast("正しくメールアドレスを入力してください", 4000);
       };
     }).fail(function(jqXHR, statusText, errorThrown) {
     });

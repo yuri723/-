@@ -6,7 +6,6 @@ $(document).ready(function(){
     var name   = $("#childname").val();
     var date   = $('#childdate').val();
 
-
     $("#confirm").empty();
     $("#confirm").append("名前:"+ name);
     $("#confirm").append("<br />生年月日:"+ date);
@@ -17,10 +16,7 @@ $(document).ready(function(){
   $('#decide').on('click',function(){
     var name   = $("#childname").val();
     var date   = $('#childdate').val();
-    if(name == "" || date == ""){
-      alert("データを正しく入力してください");
-      return;
-    }
+
     $.ajax("http://54.65.55.210/v1/children",{
       type: 'POST',
       headers: {
@@ -38,7 +34,10 @@ $(document).ready(function(){
     }).done(function(data,status, jqxhr){
       window.location.href = 'policy.html';
     }).fail(function(jqXHR, statusText, errorThrown) {
-      alert("エラー");
+      var obj = JSON.parse(jqXHR.responseText);
+      Object.keys(obj).forEach(function(key) {
+        Materialize.toast(key+":"+obj[key][0], 4000);
+      });
     });
   });
 
