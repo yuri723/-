@@ -95,6 +95,8 @@ $(document).ready(function(){
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
     alert("取得エラー");
+    window.localStorage.clear();
+    window.location.href = 'login.html';
   });
 });
 

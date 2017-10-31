@@ -1,53 +1,48 @@
-
-$(function(){
-  $(document).on('click','#login_button',function(){
-
-
-    /*
-     * 送信(ログイン者=夫)
-     */
-    if(window.localStorage.getItem("seibetu_local")=="man"){
-     console.log('夫と認識しました' );//確認用
-     $.ajax('http://54.65.55.210/v1/login',
-     {
-     type: 'POST',
-     data: {"hasband": {"email": "uaaarrrr81@emple.com", "password": "mypasssss81"}},
-     dataType: 'json',
-     timeout:10000
-     }
-     )
-     .done(function(data,status, jqxhr){
-       if (jqxhr.status === 200) {
-            // ステータスコードが 200 の場合
-            console.log('200だよ' );//確認用
-        } else {
-            // ステータスコードが 200 以外の場合
-            console.log('200以外だよ' );//確認用
-        }
-     console.log('seikou' );//確認用
-     console.log(data);//確認用
-
-     window.location.href = 'home.html'; //画面遷移
-     });
-
-     /*
-      * 送信(ログイン者=妻)
-      */
-    }else if(window.localStorage.getItem("seibetu_local")=="woman"){
-       console.log('妻と認識しました' );//確認用
-       $.ajax('http://54.65.55.210/v1/login',
-       {
-       type: 'POST',
-       data: {"wife": {"email": "uaaarr29@emple.com", "password": "mypasss29"}},
-       dataType: 'json',
-       timeout:10000
-       }
-       )
-       .done(function(data){
-       console.log('seikou' );//確認用
-       console.log(data);//確認用
-      });
-       }
-
+$(document).ready(function(){
+  $('#login_button').click(function(){
+    var email = $("#email").val();
+    var pass = $("#password").val();
+    var sex   = $('input[name=sex]:checked').val();
+    $.ajax({
+      type: 'POST',
+      url: 'http://54.65.55.210/v1/login',
+      timeout: 10000,
+      async: false,
+      data: {
+        'email': email,
+        'password': pass,
+        'type': sex
+      },
+    }).done(function(response, textStatus, jqXHR) {
+      if(response["access_token"] == null){
+        Materialize.toast(response["error"], 4000);
+        return;
+      }
+      window.localStorage.setItem("access_token_local",response["access_token"]);
+      window.localStorage.setItem("id_local",response["id"]);
+      window.localStorage.setItem("email_local",response["mail"]);
+      window.localStorage.setItem("seibetu_local",sex);
+          $.ajax("http://54.65.55.210/v1/families/search ",{
+              type: 'GET',
+              headers: {
+                'Authorization': window.localStorage.getItem("access_token_local"),
+                'UserType': window.localStorage.getItem("seibetu_local"),
+              },
+              async: false,
+              timeout: 10000,
+          }).done(function(data) {
+            if(data == null){
+              window.location.href = "partner.html";
+              exit;
+            }
+            window.localStorage.setItem("family_id",data.id);
+          }).fail(function(jqXHR, statusText, errorThrown) {
+            Materialize.toast(エラー, 4000);
+            return;
+          });
+      window.location.href = 'home.html'; //画面遷移
+    }).fail(function(jqXHR, textStatus, errorThrown ) {
+      Materialize.toast("エラー", 4000);
     });
- });
+  });
+});

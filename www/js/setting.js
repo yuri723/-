@@ -54,6 +54,13 @@ $(document).ready(function(){
       alert("情報更新できませんでした。");
     });
   });
+  $('#logout').on('click',function(){
+    conf = confirm("ログアウトしてよろしいですか");
+    if ( conf == true ){
+      window.localStorage.clear();
+      window.location.href = 'index.html';
+    }
+  });
 });
 
 $(document).ready(function(){

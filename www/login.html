@@ -2,149 +2,75 @@
 
 <html lang=ja>
     <head>
-
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="css/materialize.css">
         <title>子育てコンシェル</title>
         <script src="js/jquery/dist/jquery.min.js"></script>
+        <script src="js/materialize.min.js"></script>
         <script src="js/login.js"></script>
         <script src="js/jQuery-Validation-Engine-master/js/jquery.validationEngine.js"></script>
         <script src="js/jQuery-Validation-Engine-master/js/languages/jquery.validationEngine-ja.js"></script>
         <link href="js/jQuery-Validation-Engine-master/css/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script>
-          $(function(){
-          jQuery("#login_id_form").validationEngine();
-          });
 
-          $(document).ready(function(){
-            $('#login_button').click(function(){
-              var email = $("#email").val();
-              var pass = $("#password").val();
-              var sex   = $('input[name=sex]:checked').val();
-              console.log(email);
-              console.log(pass);
-              $.ajax({
-                type: 'POST',
-                url: 'http://support-spouses-communication.herokuapp.com/v1/login',
-                timeout: 10000,
-                data: {
-                  'email': email,
-                  'password': pass,
-                  'type': sex
-                },
-              }).done(function(response, textStatus, jqXHR) {
-                if(response["access_token"] == null){
-                  alert("認証エラー");
-                  return;
-                }
-                console.log(response["email"]);
-                console.log(response["id"]);
-                console.log(response["access_token"]);
-                window.localStorage.setItem("access_token_local",response["access_token"]);
-                window.localStorage.setItem("id_local",response["id"]);
-                window.localStorage.setItem("email_local",response["mail"]);
-                window.localStorage.setItem("seibetu_local",sex);
-
-                    $.ajax("http://54.65.55.210/v1/families/search ",{
-                        type: 'GET',
-                        headers: {
-                          'Authorization': window.localStorage.getItem("access_token_local"),
-                          'UserType': window.localStorage.getItem("seibetu_local"),
-                        },
-                        async: false,
-                        timeout: 10000,
-                    }).done(function(data) {
-                      window.localStorage.setItem("family_id",data.id);
-                    }).fail(function(jqXHR, statusText, errorThrown) {
-                      alert("ログインエラー");
-                      return;
-                    });
-                window.location.href = 'home.html'; //画面遷移
-              }).fail(function(jqXHR, textStatus, errorThrown ) {
-                console.log("error");
-              });
-            });
-          });
-        </script>
-        <style>
-            h5{
-            background-color: #179A46;
-            color: #fff;
-            padding: 8px}
-
-            hr{color:#179A46}
-
-            dt{font-weight: bold;}
-
-            div{text-align:center;
-            font-size: 1.4em;
-            border-style: none;
-
-
-            }
-            input[type=button]{
-            border-radius:10px;
-            width:200px;
-            height:30px;
-            color:#fff;
-            font-weight:bold;
-            background:gray;
-            box-shadow:black 2px 2px;
-    }
-
-            label{font-weight: bold;
-            }
-
-            iframe {
-                  max-width: 100%;
-                 }
-
-
-
-        </style>
     </head>
-    <body style="margin-right:8px;margin-left:8px;">
-        <h5 align="center">
-        	ログイン
-    	  </h5>
+    <body>
 
+      <nav class="green darken-2">
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">ログイン</a>
+        </div>
+      </nav>
 
         <p style="font-weight: bold">
         ログインに必要な情報を入力してください。
          <hr>
         </p>
 
-       <form id="login_id_form">
-        <p>
-        <dl>
-         <dt>メールアドレス</dt>
-         <dd>
-         <input type="email" id="email" placeholder="メールアドレス" style="border:solid 2px gray" class="validate[required,custom[email]]"/>
-         </dd>
-        </dl>
-        </p>
-
-        <p>
-        <dl>
-         <dt>パスワード</dt>
-         <dd>
-         <input type="password" id="password" placeholder="パスワード" style="border:solid 2px gray" class="validate[required,custon[onlyLetterNumber],minSize[8]"/>
-         </dd>
-        </dl>
-        </p>
-
-        <input name="sex" type="radio" id="man" value="hasband"/>
-        <label for="man">男</label>
-        <input name="sex" type="radio" id="woman" value="wife"/>
-        <label for="woman">女</label>
-
-        <div>
-        <input type="button" value="ログイン"  id="login_button"/>
+        <div class="row">
+          <div style="margin: 20px 0px 0px 0px;">
+            <div class="col s3">
+              <div style="margin: 30px 0px 0px 0px;">メールアドレス</div>
+            </div>
+            <div class="input-field col s9">
+              <input id="email" type="text" class="validate">
+            </div>
+          </div>
         </div>
-      </form>
 
+        <div class="row">
+          <div style="margin: 20px 0px 0px 0px;">
+            <div class="col s3">
+              <div style="margin: 30px 0px 0px 0px;">パスワード</div>
+            </div>
+            <div class="input-field col s9">
+              <input id="password" type="password" class="validate">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div style="margin: 20px 0px 0px 0px;">
+            <div class="col s3">
+              <div style="margin: 30px 0px 0px 0px;">性別</div>
+            </div>
+            <div class="input-field col s4">
+              <input name="sex" type="radio" id="man" value="hasband" checked/>
+              <label for="man">男</label>
+            </div>
+            <div class="input-field col s4">
+              <input name="sex" type="radio" id="woman" value="wife"/>
+              <label for="woman">女</label>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <a id="login_button" class="btn waves-effect waves-light green right darken-2" style="margin: 0px 0px 50px 0px;">
+          ログイン
+        </a>
 
     </body>
     </html>
