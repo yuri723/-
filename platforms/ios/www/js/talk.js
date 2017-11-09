@@ -1,5 +1,4 @@
 function add_statement(statement, user_type, name, created_at,user_id){
-
   //時間表示の処理
    var time_unix = created_at;
    var time_month = time_unix.substr(5,2);
@@ -90,7 +89,13 @@ $(document).ready(function(){
       async: false,
       timeout: 10000,
   }).done(function(data) {
-    data.reverse().forEach(function(val,index,ar){
+    data.sort(function(a,b){
+        if(a.id < b.id) return -1;
+        if(a.id > b.id) return 1;
+        return 0;
+    });
+    console.log(data)
+    data.forEach(function(val,index,ar){
        add_statement(val.statement, val.user_type, val.name, val.created_at,val.user_id);
      });
   }).fail(function(jqXHR, statusText, errorThrown) {
